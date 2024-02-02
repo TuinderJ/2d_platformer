@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbc8uqb175bxb"]
+
+[ext_resource type="Script" path="res://ui/pause_menu.gd" id="1_xo7ts"]
+
+[node name="Pause_Menu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xo7ts")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -155.0
+offset_right = 180.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume_button" type="Button" parent="Panel/ItemList"]
+layout_mode = 2
+text = "Resume Game"
+
+[node name="save_button" type="Button" parent="Panel/ItemList"]
+layout_mode = 2
+text = "Save Game"
+
+[node name="load_button" type="Button" parent="Panel/ItemList"]
+layout_mode = 2
+text = "Load Game"
+
+[node name="quit_button" type="Button" parent="Panel/ItemList"]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="secret_button" type="Button" parent="Panel/ItemList"]
+layout_mode = 2
+text = "Super Secret Button Of Doooom"
+
+[connection signal="pressed" from="Panel/ItemList/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/ItemList/save_button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Panel/ItemList/load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Panel/ItemList/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Panel/ItemList/secret_button" to="." method="_on_secret_button_pressed"]
