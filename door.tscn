@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://52ytbc6uk5vl"]
+
+[ext_resource type="Script" path="res://door.gd" id="1_prnva"]
+[ext_resource type="Texture2D" uid="uid://c6qta6nrrjhf4" path="res://assets/Other/Dust Particle.png" id="1_xiqsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxap5"]
+size = Vector2(16, 16)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j4e5d"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 1, 8)
+gravity = Vector3(0, -100, 0)
+scale_min = 0.05
+scale_max = 0.5
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_prnva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_sxap5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_j4e5d")
+texture = ExtResource("1_xiqsb")
