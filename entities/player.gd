@@ -8,6 +8,7 @@ class_name Player
 @export_group("Movement")
 @export var speed := 250.0 ## Player movement speed.
 @export var arial_speed := 12.0 ## Player movement speed while in the air.
+@export var sprint_speed_modifier := 1.2 ## Player speed movement while sprint button is pressed.
 @export var jump_velocity := -400.0 ## Strength of the jump.
 @export var max_jumps := 2 ## Maximum number of jumps, this includes the first jump from the floor.
 @export var max_wall_jumps := 1 ## Maximum number of wall jumps before touching the ground again.
@@ -15,6 +16,7 @@ class_name Player
 
 var jumps_taken := max_jumps ## Number of jumps taken since leaving the ground.
 var wall_jumps_taken := max_wall_jumps ## Number of wall jumps taken since leaving the ground.
+var speed_modifier := 1.0 ## Base speed modifier.
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity") ## Gravity
@@ -60,6 +62,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func _input(event):
+	if event.is_action_pressed("Sprint"):
+		speed_modifier = sprint_speed_modifier
+	if event.is_action_released("Sprint"):
+		speed_modifier = 1
+
+
 func handle_movement(direction: float) -> void: ## Handles Velocity based on input direction and current player state.
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and jumps_taken < max_jumps and not wall_hanging:
@@ -95,9 +104,9 @@ func handle_movement(direction: float) -> void: ## Handles Velocity based on inp
 	# Handle standard movement.
 	if direction and not wall_hanging:
 		if is_on_floor():
-			velocity.x = move_toward(velocity.x, direction * speed, speed / 2)
+			velocity.x = move_toward(velocity.x, direction * speed * speed_modifier, speed / 2)
 		else:
-			velocity.x = move_toward(velocity.x, direction * speed, arial_speed)
+			velocity.x = move_toward(velocity.x, direction * speed * speed_modifier, arial_speed)
 	else:
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, speed)
