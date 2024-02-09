@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdgy2p7dc7i7p"]
+[gd_scene load_steps=7 format=3 uid="uid://bdgy2p7dc7i7p"]
 
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_rrfdn"]
 [ext_resource type="Texture2D" uid="uid://lwabmfwuqlh" path="res://assets/Terrain/Terrain (16x16).png" id="2_2r3u4"]
 [ext_resource type="PackedScene" uid="uid://jc2ccs6fl5wl" path="res://entities/player.tscn" id="3_57x15"]
 [ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="4_fpx5k"]
-[ext_resource type="PackedScene" uid="uid://btba74mjrwkdr" path="res://objects/box_1.tscn" id="5_75o51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sda46"]
 texture = ExtResource("2_2r3u4")
@@ -586,6 +585,3 @@ position = Vector2(24, 88)
 
 [node name="FinishTrophy" parent="." instance=ExtResource("4_fpx5k")]
 position = Vector2(416, 120)
-
-[node name="Box1" parent="." instance=ExtResource("5_75o51")]
-position = Vector2(56, 96)
