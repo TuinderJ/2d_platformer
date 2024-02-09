@@ -1,26 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl51b7e85oorn"]
 
-[ext_resource type="Script" path="res://World.gd" id="1_3rsv3"]
-[ext_resource type="Texture2D" uid="uid://d1b5jvma02ewp" path="res://icon.svg" id="2_dqp5k"]
+[ext_resource type="Script" path="res://world.gd" id="1_3rsv3"]
+[ext_resource type="PackedScene" uid="uid://bhqn87hb634dp" path="res://scene_manager.tscn" id="3_1s6dh"]
 [ext_resource type="PackedScene" uid="uid://dbc8uqb175bxb" path="res://ui/pause_menu.tscn" id="3_au73f"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_umuch"]
+[ext_resource type="PackedScene" uid="uid://crxdcno7aqioc" path="res://ui/main_menu.tscn" id="5_y5gwm"]
 
 [node name="World" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_3rsv3")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="SceneManager" parent="." instance=ExtResource("3_1s6dh")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_umuch")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
-scale = Vector2(1.5625, 0.03125)
-texture = ExtResource("2_dqp5k")
-
-[node name="Pause_Menu" parent="." instance=ExtResource("3_au73f")]
+[node name="PauseMenu" parent="UI" instance=ExtResource("3_au73f")]
 visible = false
+
+[node name="MainMenu" parent="UI" instance=ExtResource("5_y5gwm")]
+
+[connection signal="new_game" from="UI/MainMenu" to="." method="_on_main_menu_new_game"]

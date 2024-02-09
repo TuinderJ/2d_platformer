@@ -20,3 +20,12 @@ func _on_quit_button_pressed() -> void:
 
 func _on_secret_button_pressed() -> void:
 	pass # Replace with function body.
+
+
+func open_pause_menu() -> void:
+	show()
+	$PanelContainer/PanelContainer/MarginContainer/VBoxContainer/resume_button.grab_focus()
+
+
+func close_pause_menu() -> void:
+	hide()
