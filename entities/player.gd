@@ -8,7 +8,7 @@ class_name Player
 @export_group("Movement")
 @export var speed := 250.0 ## Player movement speed.
 @export var arial_speed := 12.0 ## Player movement speed while in the air.
-@export var sprint_speed_modifier := 1.2 ## Player movement speed while sprint button is pressed.
+@export var sprint_speed_modifier := 1.2 ## Player speed movement while sprint button is pressed.
 @export var jump_velocity := -400.0 ## Strength of the jump.
 @export var max_jumps := 2 ## Maximum number of jumps, this includes the first jump from the floor.
 @export var max_wall_jumps := 1 ## Maximum number of wall jumps before touching the ground again.
