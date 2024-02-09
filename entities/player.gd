@@ -62,10 +62,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _input(event):
-	if event.is_action_pressed("Sprint"):
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("sprint"):
 		speed_modifier = sprint_speed_modifier
-	if event.is_action_released("Sprint"):
+	if event.is_action_released("sprint"):
 		speed_modifier = 1
 
 
