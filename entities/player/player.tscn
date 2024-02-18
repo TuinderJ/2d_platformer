@@ -494,10 +494,9 @@ states/wall_jump/position = Vector2(442, 186)
 transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_tv1hk"), "double_jump", "wall_jump", SubResource("AnimationNodeStateMachineTransition_63kgi"), "wall_jump", "Run", SubResource("AnimationNodeStateMachineTransition_3seb8"), "double_jump", "Run", SubResource("AnimationNodeStateMachineTransition_k5nus"), "Run", "Air", SubResource("AnimationNodeStateMachineTransition_k2yhv"), "Air", "Run", SubResource("AnimationNodeStateMachineTransition_kqfoe"), "Air", "double_jump", SubResource("AnimationNodeStateMachineTransition_ursqs"), "double_jump", "Air", SubResource("AnimationNodeStateMachineTransition_digtw"), "Air", "take_damage", SubResource("AnimationNodeStateMachineTransition_o6vnh"), "double_jump", "take_damage", SubResource("AnimationNodeStateMachineTransition_es7vl"), "wall_jump", "take_damage", SubResource("AnimationNodeStateMachineTransition_paoc7"), "take_damage", "wall_jump", SubResource("AnimationNodeStateMachineTransition_cqxqc"), "take_damage", "Air", SubResource("AnimationNodeStateMachineTransition_u3gb8"), "take_damage", "double_jump", SubResource("AnimationNodeStateMachineTransition_dkew0"), "Air", "wall_jump", SubResource("AnimationNodeStateMachineTransition_0wthd"), "wall_jump", "Air", SubResource("AnimationNodeStateMachineTransition_owva2")]
 graph_offset = Vector2(3, -18)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_jj35o")
-arial_speed = 4.0
 max_health = 4
 damage = 1
 

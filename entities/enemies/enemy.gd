@@ -1,21 +1,35 @@
-@tool
 extends CharacterBody2D
 
 class_name Enemy
 
-## Emnemy Class
+## Enemy Class
 ##
 ## This is the base class for all enemies
 
 @export_category("Movement")
 @export var speed: int ## Movement speed for the enemy.
+@export var sprint_modifier: float = 1 ## Movement speed modifier when aggressive towards the player.
+
+var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity") ## Gravity.
+var facing_right := false: ## Is the sprite facing to the right or not.
+	set(new_value):
+		facing_right = new_value
+		scale.x = -1
 
 @export_category("Combat")
 @export var damage: int ## Damage dealt when contacting the player.
 @export_range(1, 100, 1, "or_greater") var max_health: int = 1 ## Maximum health for this enemy.
 
 var health: int ## Current health for this enemy.
+var player: Player ## Player.
+
 @onready var health_bar: EnemyHealthBar = $EnemyHealthBar ## Health bar that shows up after taking damage.
+
+@onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
+@onready var hit_state: Node = $EnemyStateMachine/Hit
+@onready var animation_tree: AnimationTree = $AnimationTree
+
+@onready var state_debug_label: Label = $StateDebugLabel
 
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -36,7 +50,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 			has_health_bar = true
 		if child is AnimationPlayer:
 			has_animation_player = true
-	var warnings: Array
+	var warnings: Array[String] = []
 	if not has_sprite:
 		warnings.push_back("This enemy needs to have a Sprite2D.")
 	if not has_hit_box:
@@ -55,25 +69,36 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if velocity.x > 0:
-		scale = Vector2(-1, 0)
-	if velocity.x < 0:
-		scale = Vector2(1, 0)
+	await enemy_state_machine.state_process_finished
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	# Flip the enemy if it's trying to move based on its
+	if velocity.x > 0 and not facing_right:
+		facing_right = true
+	if velocity.x < 0 and facing_right:
+		facing_right = false
+
+	animation_tree.set("parameters/Wander/blend_position", velocity.x)
 
 	move_and_slide()
 
 
 func take_damage(_damage: int) -> void: ## This is called whenever a player hitbox enters this enemy's hurtbox.
+	$DamageSound.play()
 	if not _damage:
 		return
 
 	if health > 0:
 		health -= _damage
+		enemy_state_machine.current_state.next_state = hit_state
 
 	health_bar.update_health(max_health, health)
 
-	if health <= 0:
+	if health < 0:
 		health = 0
+	if health == 0:
 		die()
 
 

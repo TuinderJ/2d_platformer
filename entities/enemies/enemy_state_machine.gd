@@ -8,6 +8,8 @@ class_name EnemyStateMachine
 
 var states : Array[State]
 
+signal state_process_finished
+
 
 func _ready() -> void:
 	for child in get_children():
@@ -23,6 +25,8 @@ func _physics_process(delta: float) -> void:
 		change_state(current_state.next_state)
 
 	current_state.state_process(delta)
+
+	state_process_finished.emit()
 
 
 func change_state(new_state: State) -> void:

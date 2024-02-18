@@ -16,9 +16,9 @@ func on_exit() -> void:
 	pass
 
 
-func state_input(event: InputEvent) -> void:
+func state_input(_event: InputEvent) -> void:
 	pass
 
 
-func state_process(delta: float) -> void:
+func state_process(_delta: float) -> void:
 	pass

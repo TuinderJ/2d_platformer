@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwj0oumoc3dh3"
+path="res://.godot/imported/Pig Damage.wav-9cea63cc77735f1c720d554fdd7610bc.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Pig Damage.wav"
+dest_files=["res://.godot/imported/Pig Damage.wav-9cea63cc77735f1c720d554fdd7610bc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

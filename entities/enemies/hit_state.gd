@@ -1,17 +1,11 @@
 extends State
 
+@onready var aggressive_state: Node = $"../Aggressive"
+
 
 func on_enter() -> void:
-	pass
+	playback.travel("hit")
 
 
-func on_exit() -> void:
-	pass
-
-
-func state_input(event: InputEvent) -> void:
-	pass
-
-
-func state_process(delta: float) -> void:
-	pass
+func on_take_damage_animation_end() -> void:
+	next_state = aggressive_state

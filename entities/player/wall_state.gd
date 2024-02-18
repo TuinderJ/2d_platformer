@@ -11,7 +11,7 @@ func on_enter() -> void:
 	playback.travel("wall_jump")
 
 
-func state_process(delta: float) -> void:
+func state_process(_delta: float) -> void:
 	# Handle wall hang time.
 	if not owner.wall_hang_timer and owner.can_wall_hang and owner.wall_jumps_taken < owner.max_wall_jumps:
 		owner.wall_hanging = true
@@ -31,7 +31,7 @@ func state_process(delta: float) -> void:
 
 
 
-func state_input(event: InputEvent) -> void:
+func state_input(_event: InputEvent) -> void:
 	if next_state:
 		return
 	# Handle wall jump.

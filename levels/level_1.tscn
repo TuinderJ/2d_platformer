@@ -641,7 +641,10 @@ level_path = "res://levels/level_3.tscn"
 animation = "swipe_to_right"
 
 [node name="StartingPosition" parent="." instance=ExtResource("5_a5nvo")]
-position = Vector2(584, 336)
+position = Vector2(520, 272)
 
 [node name="AngryPig" parent="." instance=ExtResource("5_kmwd2")]
-position = Vector2(656, 296)
+position = Vector2(384, 344)
+
+[node name="AngryPig2" parent="." instance=ExtResource("5_kmwd2")]
+position = Vector2(672, 296)

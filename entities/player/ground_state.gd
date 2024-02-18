@@ -6,7 +6,7 @@ class_name GroundState
 @onready var hit: HitState = $"../Hit"
 
 
-func state_input(event: InputEvent) -> void:
+func state_input(_event: InputEvent) -> void:
 	if next_state:
 		return
 	# Handle jump.

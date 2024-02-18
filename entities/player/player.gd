@@ -22,6 +22,7 @@ var speed_modifier := 1.0 ## Base speed modifier.
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity") ## Gravity
+var has_gravity := false
 
 var wall_hang_timer: Timer = null ## Timer that's created for sticking to the wall when first colliding with the wall.
 var wall_hanging := false ## Boolean stating whether or not the player is currently sticking to the wall before sliding down.
@@ -62,8 +63,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor() and not wall_hanging:
+	if not is_on_floor() and not wall_hanging and has_gravity:
 		velocity.y += gravity * delta
+
+	if not has_gravity:
+		velocity.y = 0
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -74,14 +78,11 @@ func _physics_process(delta: float) -> void:
 	handle_movement(direction)
 
 	handle_state(direction)
-	#handle_animations(direction)
-
-	move_and_slide()
 
 	animation_tree.set("parameters/Run/blend_position", direction)
 	animation_tree.set("parameters/Air/blend_position", velocity.y)
 
-
+	move_and_slide()
 
 
 func _input(event: InputEvent) -> void:
@@ -89,6 +90,8 @@ func _input(event: InputEvent) -> void:
 		speed_modifier = sprint_speed_modifier
 	if event.is_action_released("sprint"):
 		speed_modifier = 1
+	if event.is_action_pressed("disable_gravity"):
+		has_gravity = not has_gravity
 
 
 func handle_movement(direction: float) -> void: ## Handles Velocity based on input direction and current player state.
@@ -116,35 +119,6 @@ func handle_state(direction: float) -> void: ## handles the state of the player.
 			sprite.flip_h = true
 
 
-func handle_animations(direction: float) -> void: ## Given an input direction, updates the animation of the player based on the players current state.
-	if invincibility_frames_active:
-		return
-
-	# Animations
-	if is_on_wall_only() and can_wall_hang and direction:
-		if left_wall_detection.is_colliding():
-			sprite.flip_h = true
-		elif right_wall_detection.is_colliding():
-			sprite.flip_h = false
-		animation_player.play("wall_jump")
-		return
-	if is_on_floor() and not direction:
-		animation_player.play("idle")
-		return
-	if is_on_floor() and direction:
-		animation_player.play("run")
-		return
-	if velocity.y <= 0 and jumps_taken > 1:
-		animation_player.play("double_jump")
-		return
-	if velocity.y <= 0:
-		animation_player.play("jump")
-		return
-	if velocity.y > 0:
-		animation_player.play("fall")
-		return
-
-
 func bounce_on_enemy() -> void: ## If a player's hurtbox contacts an enemy hitbox, this function is called to cause the player to bounce.
 	velocity.y = jump_velocity
 	state_machine.current_state.next_state = air_state
@@ -156,7 +130,6 @@ func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not
 
 	if health > 0:
 		health -= _damage
-		print("Player: ", health)
 		invincibility_frames_active = true
 		state_machine.current_state.next_state = hit_state
 

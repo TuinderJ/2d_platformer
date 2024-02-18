@@ -7,7 +7,7 @@ class_name AirState
 @onready var animation_tree: AnimationTree = $"../../AnimationTree"
 
 
-func state_process(delta: float) -> void:
+func state_process(_delta: float) -> void:
 	if owner.is_on_floor():
 		next_state = ground_state
 		return

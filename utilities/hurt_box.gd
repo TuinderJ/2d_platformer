@@ -13,11 +13,12 @@ func _ready() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if not area is HitBox:
 		return
-	if get_parent() == area.get_parent():
+	if owner == area.owner:
 		return
 
-	if area.get_parent().get_parent() is Player:
-		area.get_parent().get_parent().bounce_on_enemy()
+	if area.owner is Player:
+		area.owner.bounce_on_enemy()
+		owner.player = area.owner
 
-	if get_parent().get_parent().has_method("take_damage"):
-		get_parent().get_parent().take_damage(area.get_parent().get_parent().damage)
+	if owner.has_method("take_damage"):
+		owner.take_damage(area.owner.damage)
