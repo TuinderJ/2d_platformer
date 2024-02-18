@@ -1,11 +1,13 @@
 extends Node2D
 
+class_name World
+
 @onready var scene_manager: Node = $SceneManager
 @onready var pause_menu: Control = $UI/PauseMenu
 
 
 func toggle_pause_game() -> void:
-	for child in get_tree().root.get_children():
+	for child in get_children():
 		if child is Level:
 			if get_tree().is_paused():
 				pause_menu.close_pause_menu()

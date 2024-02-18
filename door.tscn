@@ -16,6 +16,8 @@ scale_min = 0.05
 scale_max = 0.5
 
 [node name="Door" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_prnva")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -26,3 +28,5 @@ shape = SubResource("RectangleShape2D_sxap5")
 amount = 60
 process_material = SubResource("ParticleProcessMaterial_j4e5d")
 texture = ExtResource("1_xiqsb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
