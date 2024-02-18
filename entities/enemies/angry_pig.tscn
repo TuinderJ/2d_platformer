@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://4jfx4m0dcahq"]
+[gd_scene load_steps=38 format=3 uid="uid://4jfx4m0dcahq"]
 
 [ext_resource type="Texture2D" uid="uid://d0cyuayuyau3a" path="res://assets/Enemies/AngryPig/Idle (36x30).png" id="1_3nrtq"]
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_o3fuv"]
@@ -15,11 +15,11 @@
 [ext_resource type="Script" path="res://entities/enemies/state_debug_label.gd" id="13_ma2se"]
 [ext_resource type="AudioStream" uid="uid://dwj0oumoc3dh3" path="res://assets/audio/sfx/Pig Damage.wav" id="14_pb6er"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1866h"]
-size = Vector2(32, 25)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fyu7"]
+height = 26.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w6pr"]
-size = Vector2(22, 3)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gc8uu"]
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_ar5v7"]
 length = 0.001
@@ -291,8 +291,6 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ldimq"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_agx23"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mx28v"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qlr54"]
@@ -306,13 +304,12 @@ states/Wander/node = SubResource("AnimationNodeBlendSpace1D_wxvcw")
 states/Wander/position = Vector2(374, 55)
 states/hit/node = SubResource("AnimationNodeAnimation_fvxx2")
 states/hit/position = Vector2(295, 167)
-transitions = ["Start", "Wander", SubResource("AnimationNodeStateMachineTransition_r8cbv"), "Wander", "hit", SubResource("AnimationNodeStateMachineTransition_bkpcj"), "Wander", "Aggresive", SubResource("AnimationNodeStateMachineTransition_ldimq"), "Aggresive", "Wander", SubResource("AnimationNodeStateMachineTransition_agx23"), "Aggresive", "hit", SubResource("AnimationNodeStateMachineTransition_mx28v"), "hit", "Aggresive", SubResource("AnimationNodeStateMachineTransition_qlr54")]
+transitions = ["Start", "Wander", SubResource("AnimationNodeStateMachineTransition_r8cbv"), "Wander", "hit", SubResource("AnimationNodeStateMachineTransition_bkpcj"), "Wander", "Aggresive", SubResource("AnimationNodeStateMachineTransition_ldimq"), "Aggresive", "hit", SubResource("AnimationNodeStateMachineTransition_mx28v"), "hit", "Aggresive", SubResource("AnimationNodeStateMachineTransition_qlr54")]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8636"]
-size = Vector2(24, 26)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u4enw"]
+height = 26.0
 
 [node name="AngryPig" type="CharacterBody2D" groups=["Enemies"]]
-collision_layer = 3
 script = ExtResource("1_o3fuv")
 speed = 25
 sprint_modifier = 3.5
@@ -325,22 +322,21 @@ texture = ExtResource("1_3nrtq")
 hframes = 9
 
 [node name="HitBox" type="Area2D" parent="Sprite2D"]
-visible = false
+position = Vector2(0, 2)
 script = ExtResource("4_8kopa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
-position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_1866h")
+shape = SubResource("CapsuleShape2D_0fyu7")
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D"]
+position = Vector2(0, 2)
 script = ExtResource("4_5shvw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
-position = Vector2(0, -11)
-shape = SubResource("RectangleShape2D_4w6pr")
+shape = SubResource("CapsuleShape2D_gc8uu")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-13, -13)
+position = Vector2(-11, -13)
 target_position = Vector2(0, 15)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -361,7 +357,7 @@ parameters/Wander/blend_position = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)
-shape = SubResource("RectangleShape2D_f8636")
+shape = SubResource("CapsuleShape2D_u4enw")
 
 [node name="WanderTimer" type="Timer" parent="."]
 one_shot = true

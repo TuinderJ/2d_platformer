@@ -29,8 +29,6 @@ var player: Player ## Player.
 @onready var hit_state: Node = $EnemyStateMachine/Hit
 @onready var animation_tree: AnimationTree = $AnimationTree
 
-@onready var state_debug_label: Label = $StateDebugLabel
-
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var has_hit_box: bool = false
@@ -66,6 +64,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 func _ready() -> void:
 	health = max_health
+	collision_layer = 2
 
 
 func _physics_process(delta: float) -> void:
@@ -81,6 +80,7 @@ func _physics_process(delta: float) -> void:
 		facing_right = false
 
 	animation_tree.set("parameters/Wander/blend_position", velocity.x)
+	animation_tree.set("parameters/Aggressive/blend_position", velocity.x)
 
 	move_and_slide()
 

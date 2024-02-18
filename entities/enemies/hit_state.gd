@@ -1,5 +1,7 @@
 extends State
 
+class_name EnemyHitState
+
 @onready var aggressive_state: Node = $"../Aggressive"
 
 

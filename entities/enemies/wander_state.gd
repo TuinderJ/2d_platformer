@@ -1,5 +1,7 @@
 extends State
 
+class_name EnemyWanderState
+
 @onready var ray_cast_2d: RayCast2D = $"../../RayCast2D"
 
 

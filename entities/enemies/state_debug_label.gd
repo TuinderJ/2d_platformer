@@ -1,4 +1,7 @@
 extends Label
+
+class_name EnemyStateDebugLabel
+
 @onready var enemy_state_machine: EnemyStateMachine = $"../EnemyStateMachine"
 
 
