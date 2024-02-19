@@ -46,8 +46,6 @@ horizontal_alignment = 1
 
 [node name="resume_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../secret_button")
-focus_previous = NodePath("../secret_button")
 text = "Resume Game"
 
 [node name="save_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -62,14 +60,7 @@ text = "Load Game"
 layout_mode = 2
 text = "Quit Game"
 
-[node name="secret_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../resume_button")
-focus_next = NodePath("../resume_button")
-text = "Super Secret Button Of Doooom"
-
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/save_button" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/load_button" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/secret_button" to="." method="_on_secret_button_pressed"]
