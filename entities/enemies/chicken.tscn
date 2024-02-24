@@ -275,7 +275,6 @@ script = ExtResource("1_xcosy")
 speed = 20
 sprint_modifier = 4.0
 damage = 1
-max_health = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -17)
@@ -315,6 +314,8 @@ parameters/Aggressive/blend_position = 0
 parameters/Wander/blend_position = -0.00236034
 
 [node name="EnemyHealthBar" parent="." instance=ExtResource("7_n5fu1")]
+offset_top = -37.0
+offset_bottom = -34.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)

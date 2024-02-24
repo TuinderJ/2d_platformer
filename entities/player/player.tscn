@@ -497,7 +497,7 @@ graph_offset = Vector2(3, -18)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_jj35o")
-max_health = 4
+max_health = 3
 damage = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://syrpr54xgi7u"]
+[gd_scene load_steps=10 format=3 uid="uid://syrpr54xgi7u"]
 
 [ext_resource type="Texture2D" uid="uid://lwabmfwuqlh" path="res://assets/Terrain/Terrain (16x16).png" id="1_irr3r"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_snslc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="5_a5nvo"]
 [ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="5_kmwd2"]
 [ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="6_rsi0k"]
+[ext_resource type="Texture2D" uid="uid://d4j307kxl22nx" path="res://assets/Traps/Spikes/Idle.png" id="7_dmbpf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lx0ii"]
 texture = ExtResource("1_irr3r")
@@ -642,10 +643,14 @@ level_path = "res://levels/level_3.tscn"
 animation = "swipe_to_right"
 
 [node name="StartingPosition" parent="." instance=ExtResource("5_a5nvo")]
-position = Vector2(520, 272)
+position = Vector2(320, 136)
 
 [node name="AngryPig" parent="." instance=ExtResource("5_kmwd2")]
 position = Vector2(384, 344)
 
 [node name="Chicken" parent="." instance=ExtResource("6_rsi0k")]
 position = Vector2(648, 296)
+
+[node name="Idle" type="Sprite2D" parent="."]
+position = Vector2(496, 336)
+texture = ExtResource("7_dmbpf")
