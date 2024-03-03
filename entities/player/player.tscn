@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://jc2ccs6fl5wl"]
+[gd_scene load_steps=58 format=3 uid="uid://jc2ccs6fl5wl"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_jj35o"]
 [ext_resource type="Texture2D" uid="uid://dipmn812rfgkk" path="res://assets/Main Characters/Ninja Frog/Idle (32x32).png" id="2_resf3"]
@@ -26,6 +26,9 @@ height = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dllb2"]
 size = Vector2(18, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7djh"]
+size = Vector2(64, 32)
 
 [sub_resource type="Animation" id="Animation_rfl4y"]
 length = 0.001
@@ -524,6 +527,14 @@ shape = SubResource("CapsuleShape2D_74e2s")
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_dllb2")
 
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_s7djh")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_kg48i")
@@ -574,3 +585,6 @@ offset_right = 62.0
 offset_bottom = -24.0
 text = "State: Ground"
 script = ExtResource("16_54bia")
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

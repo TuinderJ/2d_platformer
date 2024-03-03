@@ -22,7 +22,7 @@ var speed_modifier := 1.0 ## Base speed modifier.
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity") ## Gravity
-var has_gravity := false
+var has_gravity := true
 
 var wall_hang_timer: Timer = null ## Timer that's created for sticking to the wall when first colliding with the wall.
 var wall_hanging := false ## Boolean stating whether or not the player is currently sticking to the wall before sliding down.
@@ -30,6 +30,8 @@ var can_wall_hang := false ## Boolean stating whether or not the player can stic
 
 var wall_hang_delay_timer: Timer = null ## Timer that's responsible for not wall grabbing immediately after jumping.
 var wall_hang_delay := .2 ## Delay time from leaving the ground before the player can hang on a wall.
+
+var interactables: Array[StaticBody2D]
 
 @export_group("Combat")
 @export_range(1, 50, 1, "or_greater") var max_health: int = 1 ## Total health.
@@ -92,6 +94,9 @@ func _input(event: InputEvent) -> void:
 		speed_modifier = 1
 	if event.is_action_pressed("disable_gravity"):
 		has_gravity = not has_gravity
+	if event.is_action_pressed("interact"):
+		if interactables.size() > 0:
+			interactables[0].interact()
 
 
 func handle_movement(direction: float) -> void: ## Handles Velocity based on input direction and current player state.
@@ -140,10 +145,13 @@ func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not
 
 
 func die() -> void: ## This gets called when hp is set to 0 or less.
-	for child in get_tree().root.get_children()[0].get_children():
-		if child is SceneManager:
-			child.transition_to_level("res://levels/level_1.tscn", "fade_to_black", self)
-			health = max_health
+	print_debug("die")
+	for i in get_tree().root.get_children():
+		for child in i.get_children():
+			if child is SceneManager:
+				child.transition_to_level("res://levels/level_1.tscn", "fade_to_black", self)
+				health = max_health
+				return
 
 
 func _on_wall_hang_timer_timeout() -> void:
@@ -158,3 +166,15 @@ func _on_wall_hang_delay_timer_timeout() -> void:
 	if wall_hang_delay_timer:
 		wall_hang_delay_timer.queue_free()
 		wall_hang_delay_timer = null
+
+
+func _on_interact_area_body_entered(body: Node2D) -> void:
+	interactables.push_back(body)
+	print_debug(interactables)
+
+
+func _on_interact_area_body_exited(body: Node2D) -> void:
+	for index in interactables.size():
+		if interactables[index] == body:
+			interactables.pop_at(index)
+	print_debug(interactables)

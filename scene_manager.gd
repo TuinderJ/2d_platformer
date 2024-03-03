@@ -37,7 +37,7 @@ func on_to_animation_finished() -> void:
 
 	# If you're coming from a level, remove that level.
 	if current_level:
-		current_level.queue_free()
+		current_level.free()
 
 	# Set the current level to the incoming level.
 	current_level = new_level
