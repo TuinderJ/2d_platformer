@@ -10,8 +10,8 @@ class_name Player
 @export var arial_speed := 8.0 ## Player movement speed while in the air.
 @export var sprint_speed_modifier := 1.4 ## Player speed movement while sprint button is pressed.
 @export var jump_velocity := -400.0 ## Strength of the jump.
-@export var max_jumps := 2 ## Maximum number of jumps, this includes the first jump from the floor.
-@export var max_wall_jumps := 2 ## Maximum number of wall jumps before touching the ground again.
+@export var max_jumps := 1 ## Maximum number of jumps, this includes the first jump from the floor.
+@export var max_wall_jumps := 0 ## Maximum number of wall jumps before touching the ground again.
 @export var wall_hang_time := .25 ## Time that the player will stick to the wall before sliding down.
 
 var can_move := true ## True if the player is allowed to move.
@@ -32,6 +32,7 @@ var wall_hang_delay_timer: Timer = null ## Timer that's responsible for not wall
 var wall_hang_delay := .2 ## Delay time from leaving the ground before the player can hang on a wall.
 
 var interactables: Array[StaticBody2D]
+var is_interacting := false
 
 @export_group("Combat")
 @export_range(1, 50, 1, "or_greater") var max_health: int = 1 ## Total health.
@@ -49,6 +50,7 @@ var health: int: ## Current health
 @onready var left_wall_detection: RayCast2D = $LeftWallDetection ## Raycast to detect if the player is colliding with the left wall.
 @onready var right_wall_detection: RayCast2D = $RightWallDetection ## Raycast to detect if the player is colliding with the right wall.
 @onready var state_machine: PlayerStateMachine = $PlayerStateMachine
+@onready var ground_state: GroundState = $PlayerStateMachine/Ground
 @onready var air_state: AirState = $PlayerStateMachine/Air
 @onready var hit_state: HitState = $PlayerStateMachine/Hit
 
@@ -61,6 +63,11 @@ func _ready() -> void:
 
 	max_health_updated.emit(max_health)
 	health_updated.emit(health)
+
+	for child in get_tree().root.get_children():
+		if child is DialogueSignals:
+			child.add_extra_jumps.connect(_on_add_extra_jumps)
+			child.add_extra_wall_jumps.connect(_on_add_extra_wall_jumps)
 
 
 func _physics_process(delta: float) -> void:
@@ -95,8 +102,21 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("disable_gravity"):
 		has_gravity = not has_gravity
 	if event.is_action_pressed("interact"):
+		if is_interacting:
+			return
 		if interactables.size() > 0:
+			for child in get_tree().root.get_children():
+				if child is World:
+					child.can_pause = false
+			can_move = false
+			is_interacting = true
 			interactables[0].interact()
+			await DialogueManager.dialogue_ended
+			can_move = true
+			is_interacting = false
+			for child in get_tree().root.get_children():
+				if child is World:
+					child.can_pause = true
 
 
 func handle_movement(direction: float) -> void: ## Handles Velocity based on input direction and current player state.
@@ -146,12 +166,10 @@ func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not
 
 func die() -> void: ## This gets called when hp is set to 0 or less.
 	print_debug("die")
-	for i in get_tree().root.get_children():
-		for child in i.get_children():
-			if child is SceneManager:
-				child.transition_to_level("res://levels/level_1.tscn", "fade_to_black", self)
-				health = max_health
-				return
+	var level = (get_parent() as Level)
+	global_position = level.starting_position.global_position
+	health = max_health
+	state_machine.current_state.next_state = ground_state
 
 
 func _on_wall_hang_timer_timeout() -> void:
@@ -178,3 +196,11 @@ func _on_interact_area_body_exited(body: Node2D) -> void:
 		if interactables[index] == body:
 			interactables.pop_at(index)
 	print_debug(interactables)
+
+
+func _on_add_extra_jumps(number_of_jumps) -> void:
+	max_jumps += number_of_jumps
+
+
+func _on_add_extra_wall_jumps(number_of_wall_jumps) -> void:
+	max_wall_jumps += number_of_wall_jumps

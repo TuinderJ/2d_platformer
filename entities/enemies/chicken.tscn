@@ -272,7 +272,7 @@ radius = 9.0
 
 [node name="Chicken" type="CharacterBody2D"]
 script = ExtResource("1_xcosy")
-speed = 20
+speed = 50
 sprint_modifier = 4.0
 damage = 1
 

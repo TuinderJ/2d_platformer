@@ -10,7 +10,7 @@ func state_input(_event: InputEvent) -> void:
 	if next_state:
 		return
 	# Handle jump.
-	if Input.is_action_just_pressed("jump"):
+	if owner.can_move and Input.is_action_just_pressed("jump"):
 		owner.velocity.y = owner.jump_velocity
 		owner.jumps_taken += 1
 

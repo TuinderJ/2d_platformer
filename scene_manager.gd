@@ -23,7 +23,6 @@ func transition_to_level(new_level_path: String, _animation: String = "fade_to_b
 		player.connect("health_updated", hud.update_health)
 		player.connect("max_health_updated", hud.update_max_health)
 
-	#hud.show()
 	player.can_move = false
 	new_level.player = player
 	animation = _animation

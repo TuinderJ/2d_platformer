@@ -7,6 +7,7 @@ Player: Who wouldn't? [ID:t40d023bc75]
 Mentor: Excellent I have these old spikey gloves things from my days as an adventurer. They will help you grab onto a wall so you can jump off of it. [ID:tee8a7213e6]
 Player: Gee thank you, why are you helping me I just met you? [ID:t56bc3de545]
 Mentor: Don't worry about that for now, Why don't you try the gloves out? [ID:t95bdcff293]
+do emit("add_extra_wall_jumps", 1)
 # Cuts to full screen thing shown to the side
 # Mentor then leaves(could walk away or fade off/just poof to be mysterious) and the player has a section of the level with some easy wall jumps but the wall jumps are needed to finish the level
 => END
@@ -23,6 +24,7 @@ Mentor: Take this boots with fancy wings on them. They will allow you to jump a 
 Player: That’s amazing [ID:t78e82f2500]
 # Display you got an item screen
 Mentor: Well back to my stroll [ID:tfcc5008b37]
+do emit("add_extra_jumps", 1)
 # Mentor then walks off and the player has a section of the level with some easy double jumps but the double jumps are needed to finish the level
 => END
 
@@ -40,5 +42,6 @@ Mentor: This a sync belt. It links the power of your gloves with the power of yo
 # Display you got an item screen
 Player: This is awesome! But I still want to know why you are helping so much. [ID:te2d1ad463c]
 Mentor: Oh there's the plant I have been seeking! [ID:t99c86741b2]
+do emit("add_extra_wall_jumps", 1)
 #Mentor wanders heads off towards his plant and the player has a teaching section for the new item.
 => END
