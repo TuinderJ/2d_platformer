@@ -612,4 +612,3 @@ layer_0/tile_data = PackedInt32Array(2752734, 131072, 6, 2687198, 131072, 5, 262
 [node name="Player" parent="." instance=ExtResource("3_ppp2v")]
 position = Vector2(1280, 624)
 arial_speed = 10.0
-max_wall_jumps = 2
