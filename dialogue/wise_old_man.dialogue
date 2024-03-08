@@ -28,7 +28,7 @@ do emit("add_extra_jumps", 1)
 # Mentor then walks off and the player has a section of the level with some easy double jumps but the double jumps are needed to finish the level
 => END
 
-~ thirt_contact
+~ third_contact
 # Player enters section of the level that starts this dialogue. Could possibly animate player walking to up to mentor as a cutscene type thing
 Mentor: Hello again, I see your journey is progressing well. [ID:t9a29867925]
 Player: Out for another stroll are we? [ID:t3cd65ba68a]
