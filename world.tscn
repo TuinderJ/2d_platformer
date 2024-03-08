@@ -18,6 +18,7 @@ visible = false
 [node name="MainMenu" parent="UI" instance=ExtResource("5_y5gwm")]
 
 [node name="HUD" parent="UI" instance=ExtResource("5_4xybo")]
+visible = true
 
 [node name="SceneManager" parent="." instance=ExtResource("3_1s6dh")]
 
