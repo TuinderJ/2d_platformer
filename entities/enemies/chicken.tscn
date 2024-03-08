@@ -1,0 +1,347 @@
+[gd_scene load_steps=37 format=3 uid="uid://c3l4bv78wufol"]
+
+[ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_xcosy"]
+[ext_resource type="Texture2D" uid="uid://deivllobdkfsx" path="res://assets/Enemies/Chicken/Idle (32x34).png" id="2_45b32"]
+[ext_resource type="Script" path="res://hit_box.gd" id="2_wmngy"]
+[ext_resource type="Script" path="res://utilities/hurt_box.gd" id="3_5cf18"]
+[ext_resource type="Texture2D" uid="uid://cmcynlr5ev8dl" path="res://assets/Enemies/Chicken/Hit (32x34).png" id="5_qcbf7"]
+[ext_resource type="Script" path="res://entities/enemies/enemy_state_machine.gd" id="5_qciws"]
+[ext_resource type="Script" path="res://entities/enemies/wander_state.gd" id="6_beai1"]
+[ext_resource type="Texture2D" uid="uid://7qe0j5sbmmnb" path="res://assets/Enemies/Chicken/Run (32x34).png" id="6_fhixm"]
+[ext_resource type="Script" path="res://entities/enemies/aggressive_state.gd" id="7_g7c06"]
+[ext_resource type="PackedScene" uid="uid://bmg6suftcsjnn" path="res://ui/enemy_health_bar.tscn" id="7_n5fu1"]
+[ext_resource type="Script" path="res://entities/enemies/hit_state.gd" id="8_2gpu7"]
+[ext_resource type="AudioStream" uid="uid://duvpomdn70aeu" path="res://assets/Enemies/Chicken/Chicken Damage.mp3" id="8_m6k6l"]
+[ext_resource type="Script" path="res://entities/enemies/state_debug_label.gd" id="9_wfmns"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tutjv"]
+radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0ntu"]
+size = Vector2(14, 4)
+
+[sub_resource type="Animation" id="Animation_6ptps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_45b32")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_uv5e2"]
+resource_name = "hit"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_qcbf7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemyStateMachine/Hit")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_take_damage_animation_end"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5hcya"]
+resource_name = "idle"
+length = 0.65
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_45b32")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_ice1d"]
+resource_name = "run"
+length = 0.7
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_fhixm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e2cne"]
+_data = {
+"RESET": SubResource("Animation_6ptps"),
+"hit": SubResource("Animation_uv5e2"),
+"idle": SubResource("Animation_5hcya"),
+"run": SubResource("Animation_ice1d")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n868r"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_plk3e"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83ifv"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_qwrsd"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_n868r")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_plk3e")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_83ifv")
+blend_point_2/pos = -1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_olap2"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p44ka"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jyn4s"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_mh0js"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_olap2")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_p44ka")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_jyn4s")
+blend_point_2/pos = -1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7wi5e"]
+animation = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xrd80"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_12ivb"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2q8w0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2wvjn"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l0d2o"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v8uej"]
+states/Aggressive/node = SubResource("AnimationNodeBlendSpace1D_qwrsd")
+states/Aggressive/position = Vector2(533, 100)
+states/Wander/node = SubResource("AnimationNodeBlendSpace1D_mh0js")
+states/Wander/position = Vector2(342, 37)
+states/hit/node = SubResource("AnimationNodeAnimation_7wi5e")
+states/hit/position = Vector2(342, 176)
+transitions = ["Start", "Wander", SubResource("AnimationNodeStateMachineTransition_xrd80"), "Wander", "Aggressive", SubResource("AnimationNodeStateMachineTransition_12ivb"), "Aggressive", "hit", SubResource("AnimationNodeStateMachineTransition_2q8w0"), "hit", "Aggressive", SubResource("AnimationNodeStateMachineTransition_2wvjn"), "Wander", "hit", SubResource("AnimationNodeStateMachineTransition_l0d2o")]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khovi"]
+radius = 9.0
+
+[node name="Chicken" type="CharacterBody2D"]
+script = ExtResource("1_xcosy")
+speed = 50
+sprint_modifier = 4.0
+damage = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
+texture = ExtResource("2_45b32")
+hframes = 13
+
+[node name="HitBox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("2_wmngy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_tutjv")
+
+[node name="HurtBox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("3_5cf18")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_j0ntu")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-8, -17)
+target_position = Vector2(0, 19)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e2cne")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e2cne")
+}
+tree_root = SubResource("AnimationNodeStateMachine_v8uej")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Aggressive/blend_position = 0
+parameters/Wander/blend_position = -0.00236034
+
+[node name="EnemyHealthBar" parent="." instance=ExtResource("7_n5fu1")]
+offset_top = -37.0
+offset_bottom = -34.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_khovi")
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_m6k6l")
+volume_db = -12.0
+
+[node name="EnemyStateDebugLabel" type="Label" parent="."]
+offset_left = -41.0
+offset_top = -56.0
+offset_right = 8.0
+offset_bottom = -33.0
+text = "State: "
+script = ExtResource("9_wfmns")
+
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("5_qciws")
+current_state = NodePath("Wander")
+
+[node name="Wander" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_beai1")
+
+[node name="Aggressive" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_g7c06")
+
+[node name="Hit" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("8_2gpu7")

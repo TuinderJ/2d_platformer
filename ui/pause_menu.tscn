@@ -41,35 +41,26 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "---------Pause---------"
+text = "PAUSE_MENU_TITLE"
 horizontal_alignment = 1
 
 [node name="resume_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../secret_button")
-focus_previous = NodePath("../secret_button")
-text = "Resume Game"
+text = "RESUME_BUTTON"
 
 [node name="save_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Save Game"
+text = "SAVE_BUTTON"
 
 [node name="load_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Load Game"
+text = "LOAD_BUTTON"
 
 [node name="quit_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit Game"
-
-[node name="secret_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../resume_button")
-focus_next = NodePath("../resume_button")
-text = "Super Secret Button Of Doooom"
+text = "QUIT_BUTTON"
 
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/save_button" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/load_button" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/secret_button" to="." method="_on_secret_button_pressed"]

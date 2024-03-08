@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmfmne8l03x77"]
+
+[ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_y1668"]
+
+[node name="Bat" type="RigidBody2D"]
+script = ExtResource("1_y1668")

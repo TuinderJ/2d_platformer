@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsxi4btjyxjam"]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_jy2eh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5njp"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="HUD" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jy2eh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_direction = 3
+layout_mode = 1
+offset_left = -24.0
+offset_bottom = 24.0
+scale = Vector2(-1.5, 1.5)
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p5njp")
+
+[node name="EmptyHeartsContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="FullHeartsContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2

@@ -18,10 +18,6 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 
-func _on_secret_button_pressed() -> void:
-	pass # Replace with function body.
-
-
 func open_pause_menu() -> void:
 	show()
 	$PanelContainer/PanelContainer/MarginContainer/VBoxContainer/resume_button.grab_focus()

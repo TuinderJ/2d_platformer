@@ -1,0 +1,47 @@
+~ first_contact
+# Player enters section of the level that starts this dialogue. Could possibly animate player walking to up to mentor as a cutscene type thing
+Mentor: Hello there young one, how's your journey going so far? [ID:t9ed9cc67ee]
+Player: Don't I know you from somewhere? [ID:t1c70f47835]
+Mentor: Oh certainly not, I have never seen you before in my life. Any way's you want an upgrade to your abilities? [ID:ta7f78de00a]
+Player: Who wouldn't? [ID:t40d023bc75]
+Mentor: Excellent I have these old spikey gloves things from my days as an adventurer. They will help you grab onto a wall so you can jump off of it. [ID:tee8a7213e6]
+Player: Gee thank you, why are you helping me I just met you? [ID:t56bc3de545]
+Mentor: Don't worry about that for now, Why don't you try the gloves out? [ID:t95bdcff293]
+do emit("add_extra_wall_jumps", 1)
+# Cuts to full screen thing shown to the side
+# Mentor then leaves(could walk away or fade off/just poof to be mysterious) and the player has a section of the level with some easy wall jumps but the wall jumps are needed to finish the level
+=> END
+
+~ second_contact
+# Player enters section of the level that starts this dialogue. Could possibly animate player walking to up to mentor as a cutscene type thing
+Mentor: We meet again young adventurer. [ID:td1bc2f4ff6]
+Player: What are you doing here? [ID:t4a9e00527a]
+Mentor: Oh I was just out for a stroll. [ID:t1e862a33a7]
+Player: Why would you take a stroll in such a dangerous are? [ID:td210fd8428]
+Mentor: Dangerous to you maybe haha. Might you be interested in another item? Perhaps one that will help you with these "dangers" [ID:t48f1786772]
+Player: Of course! [ID:t493955b02f]
+Mentor: Take this boots with fancy wings on them. They will allow you to jump a second time in the air! [ID:ta95ce67274]
+Player: That’s amazing [ID:t78e82f2500]
+# Display you got an item screen
+Mentor: Well back to my stroll [ID:tfcc5008b37]
+do emit("add_extra_jumps", 1)
+# Mentor then walks off and the player has a section of the level with some easy double jumps but the double jumps are needed to finish the level
+=> END
+
+~ thirt_contact
+# Player enters section of the level that starts this dialogue. Could possibly animate player walking to up to mentor as a cutscene type thing
+Mentor: Hello again, I see your journey is progressing well. [ID:t9a29867925]
+Player: Out for another stroll are we? [ID:t3cd65ba68a]
+Mentor: Oh no I am out looking for a particular plant to make some tea from. [ID:tba7b2dbced]
+Player: What kind of tea? [ID:t4d4fbc3202]
+Mentor: Why the kind you drink of course! [ID:t1983620dac]
+Player: That tells me nothing… [ID:t67222c298c]
+Mentor: Say, would you be interested in another item? [ID:tab2558edb4]
+Player: Most certainly! [ID:td921bd752e]
+Mentor: This a sync belt. It links the power of your gloves with the power of your boots and allows you to jump off the walls a second time while remaining in the air. [ID:t8fdb05a274]
+# Display you got an item screen
+Player: This is awesome! But I still want to know why you are helping so much. [ID:te2d1ad463c]
+Mentor: Oh there's the plant I have been seeking! [ID:t99c86741b2]
+do emit("add_extra_wall_jumps", 1)
+#Mentor wanders heads off towards his plant and the player has a teaching section for the new item.
+=> END

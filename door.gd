@@ -1,11 +1,14 @@
 extends Area2D
 
+class_name Door
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export_file(".tscn") var level_path: String
+@export_enum("fade_to_black", "swipe_to_left", "swipe_to_right") var animation: String
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_body_entered(body: Node2D) -> void:
+	if not body is Player:
+		return
+	for child in get_tree().root.get_children():
+		if child is World:
+			child.scene_manager.transition_to_level(level_path, animation, body)
