@@ -23,7 +23,6 @@ func transition_to_level(new_level_path: String, _animation: String = "fade_to_b
 		player.connect("health_updated", hud.update_health)
 		player.connect("max_health_updated", hud.update_max_health)
 
-	#hud.show()
 	player.can_move = false
 	new_level.player = player
 	animation = _animation
@@ -37,7 +36,7 @@ func on_to_animation_finished() -> void:
 
 	# If you're coming from a level, remove that level.
 	if current_level:
-		current_level.queue_free()
+		current_level.free()
 
 	# Set the current level to the incoming level.
 	current_level = new_level

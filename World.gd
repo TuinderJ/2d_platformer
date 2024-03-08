@@ -5,8 +5,12 @@ class_name World
 @onready var scene_manager: Node = $SceneManager
 @onready var pause_menu: Control = $UI/PauseMenu
 
+var can_pause := true
+
 
 func toggle_pause_game() -> void:
+	if not can_pause:
+		return
 	for child in get_children():
 		if child is Level:
 			if get_tree().is_paused():

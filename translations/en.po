@@ -1,0 +1,228 @@
+# LANGUAGE translation for 2D Platformer for the following files:
+# res://ui/hud.tscn
+# res://ui/main_menu.tscn
+# res://ui/pause_menu.tscn
+# res://dialogue/wise_old_man.dialogue
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 2D Platformer\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: ui/main_menu.tscn
+msgid "MAIN_MENU_TITLE"
+msgstr "Main Menu"
+
+#: ui/main_menu.tscn
+msgid "NEW_GAME_BUTTON_TOOLTIP"
+msgstr "New Game"
+
+#: ui/main_menu.tscn
+msgid "NEW_GAME_BUTTON"
+msgstr "New Game"
+
+#: ui/main_menu.tscn
+msgid "LOAD_BUTTON_TOOLTIP"
+msgstr "Load a save file"
+
+#: ui/main_menu.tscn
+msgid "CONTINUE_BUTTON"
+msgstr "Continue"
+
+#: ui/main_menu.tscn ui/pause_menu.tscn
+msgid "QUIT_BUTTON"
+msgstr "Quit to Desktop"
+
+#: ui/pause_menu.tscn
+msgid "PAUSE_MENU_TITLE"
+msgstr "----------Pause----------"
+
+#: ui/pause_menu.tscn
+msgid "RESUME_BUTTON"
+msgstr "Resume Game"
+
+#: ui/pause_menu.tscn
+msgid "SAVE_BUTTON"
+msgstr "Save Game"
+
+#: ui/pause_menu.tscn
+msgid "LOAD_BUTTON"
+msgstr "Load Game"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "dialogue"
+msgid "Mentor"
+msgstr "Mentor"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "dialogue"
+msgid "Player"
+msgstr "Player"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t9ed9cc67ee"
+msgid "Hello there young one, how's your journey going so far?"
+msgstr "Hello there young one, how's your journey going so far?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t1c70f47835"
+msgid "Don't I know you from somewhere?"
+msgstr "Don't I know you from somewhere?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "ta7f78de00a"
+msgid ""
+"Oh certainly not, I have never seen you before in my life. Any way's you "
+"want an upgrade to your abilities?"
+msgstr ""
+"Oh certainly not, I have never seen you before in my life. Any way's you "
+"want an upgrade to your abilities?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t40d023bc75"
+msgid "Who wouldn't?"
+msgstr "Who wouldn't?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "tee8a7213e6"
+msgid ""
+"Excellent I have these old spikey gloves things from my days as an "
+"adventurer. They will help you grab onto a wall so you can jump off of it."
+msgstr ""
+"Excellent I have these old spikey gloves things from my days as an "
+"adventurer. They will help you grab onto a wall so you can jump off of it."
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t56bc3de545"
+msgid "Gee thank you, why are you helping me I just met you?"
+msgstr "Gee thank you, why are you helping me I just met you?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t95bdcff293"
+msgid "Don't worry about that for now, Why don't you try the gloves out?"
+msgstr "Don't worry about that for now, Why don't you try the gloves out?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "td1bc2f4ff6"
+msgid "We meet again young adventurer."
+msgstr "We meet again young adventurer."
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t4a9e00527a"
+msgid "What are you doing here?"
+msgstr "What are you doing here?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t1e862a33a7"
+msgid "Oh I was just out for a stroll."
+msgstr "Oh I was just out for a stroll."
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "td210fd8428"
+msgid "Why would you take a stroll in such a dangerous are?"
+msgstr "Why would you take a stroll in such a dangerous are?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t48f1786772"
+msgid ""
+"Dangerous to you maybe haha. Might you be interested in another item? "
+"Perhaps one that will help you with these \\\"dangers\\\""
+msgstr ""
+"Dangerous to you maybe haha. Might you be interested in another item? "
+"Perhaps one that will help you with these \\\"dangers\\\""
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t493955b02f"
+msgid "Of course!"
+msgstr "Of course!"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "ta95ce67274"
+msgid ""
+"Take this boots with fancy wings on them. They will allow you to jump a "
+"second time in the air!"
+msgstr ""
+"Take this boots with fancy wings on them. They will allow you to jump a "
+"second time in the air!"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t78e82f2500"
+msgid "That’s amazing"
+msgstr "That’s amazing"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "tfcc5008b37"
+msgid "Well back to my stroll"
+msgstr "Well back to my stroll"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t9a29867925"
+msgid "Hello again, I see your journey is progressing well."
+msgstr "Hello again, I see your journey is progressing well."
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t3cd65ba68a"
+msgid "Out for another stroll are we?"
+msgstr "Out for another stroll are we?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "tba7b2dbced"
+msgid "Oh no I am out looking for a particular plant to make some tea from."
+msgstr "Oh no I am out looking for a particular plant to make some tea from."
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t4d4fbc3202"
+msgid "What kind of tea?"
+msgstr "What kind of tea?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t1983620dac"
+msgid "Why the kind you drink of course!"
+msgstr "Why the kind you drink of course!"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t67222c298c"
+msgid "That tells me nothing…"
+msgstr "That tells me nothing…"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "tab2558edb4"
+msgid "Say, would you be interested in another item?"
+msgstr "Say, would you be interested in another item?"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "td921bd752e"
+msgid "Most certainly!"
+msgstr "Most certainly!"
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t8fdb05a274"
+msgid ""
+"This a sync belt. It links the power of your gloves with the power of your "
+"boots and allows you to jump off the walls a second time while remaining in "
+"the air."
+msgstr ""
+"This a sync belt. It links the power of your gloves with the power of your "
+"boots and allows you to jump off the walls a second time while remaining in "
+"the air."
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "te2d1ad463c"
+msgid "This is awesome! But I still want to know why you are helping so much."
+msgstr "This is awesome! But I still want to know why you are helping so much."
+
+#: dialogue/wise_old_man.dialogue
+msgctxt "t99c86741b2"
+msgid "Oh there's the plant I have been seeking!"
+msgstr "Oh there's the plant I have been seeking!"
