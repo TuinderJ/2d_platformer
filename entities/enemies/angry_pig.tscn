@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0cyuayuyau3a" path="res://assets/Enemies/AngryPig/Idle (36x30).png" id="1_3nrtq"]
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_o3fuv"]
 [ext_resource type="Script" path="res://utilities/hurt_box.gd" id="4_5shvw"]
-[ext_resource type="Script" path="res://hit_box.gd" id="4_8kopa"]
+[ext_resource type="Script" path="res://utilities/hit_box.gd" id="4_8kopa"]
 [ext_resource type="PackedScene" uid="uid://bmg6suftcsjnn" path="res://ui/enemy_health_bar.tscn" id="5_6deq1"]
 [ext_resource type="Texture2D" uid="uid://d0ftuqsdc3yss" path="res://assets/Enemies/AngryPig/Walk (36x30).png" id="5_e11hu"]
 [ext_resource type="Texture2D" uid="uid://bpm84c15a27py" path="res://assets/Enemies/AngryPig/Run (36x30).png" id="6_ifkd4"]

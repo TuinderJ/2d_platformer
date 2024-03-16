@@ -19,7 +19,7 @@ config/icon="res://assets/Main Characters/Ninja Frog/Jump (32x32).png"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-Test="*res://dialogue_signals.gd"
+Test="*res://globals/dialogue_signals.gd"
 
 [dialogue_manager]
 
@@ -28,7 +28,6 @@ general/wrap_lines=true
 
 [display]
 
-window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

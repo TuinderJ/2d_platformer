@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bhqn87hb634dp"]
 
-[ext_resource type="Script" path="res://scene_manager.gd" id="1_wquqg"]
+[ext_resource type="Script" path="res://utilities/scene_manager.gd" id="1_wquqg"]
 
 [sub_resource type="Animation" id="Animation_8f6a1"]
 length = 0.001

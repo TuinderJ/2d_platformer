@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://52ytbc6uk5vl"]
 
-[ext_resource type="Script" path="res://door.gd" id="1_prnva"]
+[ext_resource type="Script" path="res://utilities/door.gd" id="1_prnva"]
 [ext_resource type="Texture2D" uid="uid://c6qta6nrrjhf4" path="res://assets/Other/Dust Particle.png" id="1_xiqsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxap5"]
