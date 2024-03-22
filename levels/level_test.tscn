@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://syrpr54xgi7u"]
+[gd_scene load_steps=12 format=3 uid="uid://syrpr54xgi7u"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_snslc"]
 [ext_resource type="TileSet" uid="uid://x72al53mh24r" path="res://assets/Terrain/tile_set.tres" id="2_2qrvr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="6_rsi0k"]
 [ext_resource type="PackedScene" uid="uid://dtjx8oru1sfxn" path="res://utilities/death_box.tscn" id="8_i1jhh"]
 [ext_resource type="PackedScene" uid="uid://yohs00xag20v" path="res://objects/traps/spike_trap.tscn" id="9_v0lbn"]
+[ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="10_tmvhn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nk4lx"]
 size = Vector2(80, 152)
@@ -51,3 +52,6 @@ position = Vector2(312, 136)
 [node name="SpikeTrap" parent="." instance=ExtResource("9_v0lbn")]
 position = Vector2(176, 232)
 number_of_spikes = 8
+
+[node name="FinishTrophy" parent="SpikeTrap" instance=ExtResource("10_tmvhn")]
+position = Vector2(-120, -96)

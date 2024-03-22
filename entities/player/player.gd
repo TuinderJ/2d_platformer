@@ -143,7 +143,7 @@ func bounce_on_enemy() -> void: ## If a player's hurtbox contacts an enemy hitbo
 	velocity.y = jump_velocity
 	state_machine.current_state.next_state = air_state
 
-func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not your own) enters your hurtbox.a
+func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not your own) enters your hurtbox.
 	if not _damage or invincibility_frames_active:
 		return
 
@@ -158,7 +158,6 @@ func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not
 		die()
 
 func die() -> void: ## This gets called when hp is set to 0 or less.
-	print_debug("die")
 	var level = (get_parent() as Level)
 	global_position = level.starting_position.global_position
 	health = max_health

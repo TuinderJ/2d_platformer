@@ -6,6 +6,7 @@ extends Control
 @onready var stats_container: HBoxContainer = $MarginContainer2/StatsContainer
 
 func _ready():
+	hide()
 	PlayerStats.stats_updated.connect(_player_stats_updated)
 
 func update_max_health(max_health: int) -> void:
@@ -44,7 +45,6 @@ func add_full_hearts(count: int) -> void:
 
 func _player_stats_updated(stats) -> void:
 	for key in stats:
-		prints(key, stats[key])
 		for child in stats_container.get_children():
 			if child.name == key:
 				child.text = str(stats[key])
