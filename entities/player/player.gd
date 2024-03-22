@@ -56,7 +56,7 @@ var health: int: ## Current health
 
 signal max_health_updated(new_max_health: int)
 signal health_updated(new_health: int)
-
+signal stat_updated(key, value_to_increase_by)
 
 func _ready() -> void:
 	health = max_health
@@ -68,7 +68,6 @@ func _ready() -> void:
 		if child is DialogueSignals:
 			child.add_extra_jumps.connect(_on_add_extra_jumps)
 			child.add_extra_wall_jumps.connect(_on_add_extra_wall_jumps)
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -92,7 +91,6 @@ func _physics_process(delta: float) -> void:
 	animation_tree.set("parameters/Air/blend_position", velocity.y)
 
 	move_and_slide()
-
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("sprint"):
@@ -118,7 +116,6 @@ func _input(event: InputEvent) -> void:
 				if child is World:
 					child.can_pause = true
 
-
 func handle_movement(direction: float) -> void: ## Handles Velocity based on input direction and current player state.
 	# Handle standard movement.
 	if direction and not wall_hanging and state_machine.can_move():
@@ -128,7 +125,6 @@ func handle_movement(direction: float) -> void: ## Handles Velocity based on inp
 			velocity.x = move_toward(velocity.x, direction * speed * speed_modifier, arial_speed)
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, speed)
-
 
 func handle_state(direction: float) -> void: ## handles the state of the player. This controlls animations, i-frames and other things like that.
 	# Direction to face based on input direction or direction moving
@@ -143,15 +139,12 @@ func handle_state(direction: float) -> void: ## handles the state of the player.
 		elif velocity.x < 0:
 			sprite.flip_h = true
 
-
 func bounce_on_enemy() -> void: ## If a player's hurtbox contacts an enemy hitbox, this function is called to cause the player to bounce.
 	velocity.y = jump_velocity
 	state_machine.current_state.next_state = air_state
 
-
 func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not your own) enters your hurtbox.a
 	if not _damage or invincibility_frames_active:
-		print("taking damage")
 		return
 
 	if health > 0:
@@ -164,7 +157,6 @@ func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not
 	if health == 0:
 		die()
 
-
 func die() -> void: ## This gets called when hp is set to 0 or less.
 	print_debug("die")
 	var level = (get_parent() as Level)
@@ -173,13 +165,11 @@ func die() -> void: ## This gets called when hp is set to 0 or less.
 	invincibility_frames_active = false
 	state_machine.current_state.next_state = ground_state
 
-
 func _on_wall_hang_timer_timeout() -> void:
 	wall_hanging = false
 	can_wall_hang = false
 	wall_hang_timer.queue_free()
 	wall_hang_timer = null
-
 
 func _on_wall_hang_delay_timer_timeout() -> void:
 	can_wall_hang = true
@@ -187,22 +177,16 @@ func _on_wall_hang_delay_timer_timeout() -> void:
 		wall_hang_delay_timer.queue_free()
 		wall_hang_delay_timer = null
 
-
 func _on_interact_area_body_entered(body: Node2D) -> void:
 	interactables.push_back(body)
-	print_debug(interactables)
-
 
 func _on_interact_area_body_exited(body: Node2D) -> void:
 	for index in interactables.size():
 		if interactables[index] == body:
 			interactables.pop_at(index)
-	print_debug(interactables)
-
 
 func _on_add_extra_jumps(number_of_jumps) -> void:
 	max_jumps += number_of_jumps
-
 
 func _on_add_extra_wall_jumps(number_of_wall_jumps) -> void:
 	max_wall_jumps += number_of_wall_jumps

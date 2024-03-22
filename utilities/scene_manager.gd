@@ -11,7 +11,6 @@ var animation: String
 var player: Player
 var can_play := true
 
-
 func transition_to_level(new_level_path: String, _animation: String = "fade_to_black", _player: Player = null) -> void:
 	# Load the new level from the path provided
 	new_level = load(new_level_path).instantiate()
@@ -27,7 +26,6 @@ func transition_to_level(new_level_path: String, _animation: String = "fade_to_b
 	new_level.player = player
 	animation = _animation
 	animation_player.play(animation)
-
 
 func on_to_animation_finished() -> void:
 	# If you passed in a player, remove it from the previous level and apply it to the new level.

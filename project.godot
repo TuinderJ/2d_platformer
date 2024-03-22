@@ -20,7 +20,8 @@ config/windows_native_icon="res://assets/Jump (32x32).ico"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-Test="*res://globals/dialogue_signals.gd"
+DialogueGlobals="*res://globals/dialogue_signals.gd"
+PlayerStats="*res://globals/player_stats.gd"
 
 [dialogue_manager]
 

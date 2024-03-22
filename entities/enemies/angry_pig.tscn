@@ -311,6 +311,7 @@ height = 26.0
 
 [node name="AngryPig" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_o3fuv")
+identifier = "Pig"
 speed = 25
 sprint_modifier = 3.5
 damage = 1
