@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_jj35o"]
 [ext_resource type="Texture2D" uid="uid://dipmn812rfgkk" path="res://assets/Main Characters/Ninja Frog/Idle (32x32).png" id="2_resf3"]
-[ext_resource type="Script" path="res://hit_box.gd" id="3_tvgth"]
+[ext_resource type="Script" path="res://utilities/hit_box.gd" id="3_tvgth"]
 [ext_resource type="Script" path="res://utilities/hurt_box.gd" id="4_clh2j"]
 [ext_resource type="Texture2D" uid="uid://ccnv25e127yvl" path="res://assets/Main Characters/Ninja Frog/Double Jump (32x32).png" id="5_hbk40"]
 [ext_resource type="Texture2D" uid="uid://cnjyy36331liy" path="res://assets/Main Characters/Ninja Frog/Fall (32x32).png" id="6_x8hjm"]

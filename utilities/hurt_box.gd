@@ -26,5 +26,5 @@ func _on_area_entered(area: Area2D) -> void:
 		owner.take_damage(area.owner.damage)
 
 	# If the enemy hit the player.
-	if owner is Player and area.owner is Enemy and area.global_position.y <= owner.global_position.y:
+	if owner is Player and area.owner.is_in_group("Enemies") and area.global_position.y <= owner.global_position.y:
 		owner.take_damage(area.owner.damage)

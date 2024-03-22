@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://yohs00xag20v"]
+
+[ext_resource type="Texture2D" uid="uid://d4j307kxl22nx" path="res://assets/Traps/Spikes/Idle.png" id="1_nton7"]
+[ext_resource type="Script" path="res://objects/traps/trap.gd" id="1_yx16p"]
+[ext_resource type="Script" path="res://utilities/hit_box.gd" id="2_qda5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11g0e"]
+size = Vector2(16, 8)
+
+[node name="SpikeTrap" type="StaticBody2D" groups=["Enemies"]]
+script = ExtResource("1_yx16p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_nton7")
+
+[node name="HitBox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("2_qda5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_11g0e")

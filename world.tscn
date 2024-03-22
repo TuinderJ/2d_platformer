@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl51b7e85oorn"]
+[gd_scene load_steps=7 format=3 uid="uid://bl51b7e85oorn"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_3rsv3"]
-[ext_resource type="PackedScene" uid="uid://bhqn87hb634dp" path="res://scene_manager.tscn" id="3_1s6dh"]
+[ext_resource type="PackedScene" uid="uid://bhqn87hb634dp" path="res://utilities/scene_manager.tscn" id="3_1s6dh"]
 [ext_resource type="PackedScene" uid="uid://dbc8uqb175bxb" path="res://ui/pause_menu.tscn" id="3_au73f"]
 [ext_resource type="PackedScene" uid="uid://bsxi4btjyxjam" path="res://ui/hud.tscn" id="5_4xybo"]
 [ext_resource type="PackedScene" uid="uid://crxdcno7aqioc" path="res://ui/main_menu.tscn" id="5_y5gwm"]
+[ext_resource type="Script" path="res://starting_level.gd" id="6_jafah"]
 
 [node name="World" type="Node2D"]
 process_mode = 3
@@ -21,5 +22,9 @@ visible = false
 visible = true
 
 [node name="SceneManager" parent="." instance=ExtResource("3_1s6dh")]
+
+[node name="StartingLevel" type="Node" parent="."]
+script = ExtResource("6_jafah")
+level_path = "res://levels/level_1.tscn"
 
 [connection signal="new_game" from="UI/MainMenu" to="." method="_on_main_menu_new_game"]

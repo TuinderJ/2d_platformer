@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://syrpr54xgi7u"]
+[gd_scene load_steps=10 format=3 uid="uid://syrpr54xgi7u"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_snslc"]
-[ext_resource type="TileSet" uid="uid://bx7ihari8mrq3" path="res://assets/Terrain/tile_set.tres" id="2_2qrvr"]
-[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://door.tscn" id="4_ofvaj"]
+[ext_resource type="TileSet" uid="uid://x72al53mh24r" path="res://assets/Terrain/tile_set.tres" id="2_2qrvr"]
+[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="4_ofvaj"]
 [ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="5_a5nvo"]
 [ext_resource type="PackedScene" uid="uid://dbfw5jr7c0kup" path="res://entities/npcs/wise_old_man/wise_old_man.tscn" id="5_fcx06"]
 [ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="5_kmwd2"]
 [ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="6_rsi0k"]
-[ext_resource type="Texture2D" uid="uid://d4j307kxl22nx" path="res://assets/Traps/Spikes/Idle.png" id="7_dmbpf"]
 [ext_resource type="PackedScene" uid="uid://dtjx8oru1sfxn" path="res://utilities/death_box.tscn" id="8_i1jhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nk4lx"]
@@ -38,10 +37,6 @@ position = Vector2(384, 344)
 [node name="Chicken" parent="." instance=ExtResource("6_rsi0k")]
 position = Vector2(648, 296)
 
-[node name="Idle" type="Sprite2D" parent="."]
-position = Vector2(496, 336)
-texture = ExtResource("7_dmbpf")
-
 [node name="DeathBox" parent="." instance=ExtResource("8_i1jhh")]
 position = Vector2(712, 376)
 
@@ -50,4 +45,4 @@ position = Vector2(40, 68)
 shape = SubResource("RectangleShape2D_nk4lx")
 
 [node name="WiseOldMan" parent="." instance=ExtResource("5_fcx06")]
-position = Vector2(208, 232)
+position = Vector2(312, 136)
