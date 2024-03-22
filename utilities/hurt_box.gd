@@ -26,7 +26,5 @@ func _on_area_entered(area: Area2D) -> void:
 		owner.take_damage(area.owner.damage)
 
 	# If the enemy hit the player.
-	prints(owner is Player, area.owner.is_in_group("Enemies"), area.global_position.y <= owner.global_position.y)
 	if owner is Player and area.owner.is_in_group("Enemies") and area.global_position.y <= owner.global_position.y:
 		owner.take_damage(area.owner.damage)
-		print("not hitbox")

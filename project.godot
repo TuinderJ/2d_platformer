@@ -15,6 +15,7 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://assets/Main Characters/Ninja Frog/Jump (32x32).png"
+config/windows_native_icon="res://assets/Jump (32x32).ico"
 
 [autoload]
 
