@@ -8,6 +8,4 @@ class_name Door
 func _on_body_entered(body: Node2D) -> void:
 	if not body is Player:
 		return
-	for child in get_tree().root.get_children():
-		if child is World:
-			child.scene_manager.transition_to_level(level_path, animation, body)
+	get_node("/root/SceneManager").transition_to_level(level_path, animation, body)

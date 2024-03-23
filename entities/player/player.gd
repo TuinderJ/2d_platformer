@@ -42,7 +42,7 @@ var is_interacting := false
 var health: int: ## Current health
 	set(new_value):
 		health = new_value
-		health_updated.emit(health)
+		hud.update_health(health)
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer ## Animation player for the player.
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -53,16 +53,16 @@ var health: int: ## Current health
 @onready var ground_state: GroundState = $PlayerStateMachine/Ground
 @onready var air_state: AirState = $PlayerStateMachine/Air
 @onready var hit_state: HitState = $PlayerStateMachine/Hit
+@onready var hud: Control = $CanvasLayer/HUD
+@onready var pause_menu: Control = $CanvasLayer/PauseMenu
 
-signal max_health_updated(new_max_health: int)
-signal health_updated(new_health: int)
 signal stat_updated(key, value_to_increase_by)
 
 func _ready() -> void:
 	health = max_health
 
-	max_health_updated.emit(max_health)
-	health_updated.emit(health)
+	hud.update_max_health(max_health)
+	hud.update_health(health)
 
 	for child in get_tree().root.get_children():
 		if child is DialogueSignals:
@@ -103,18 +103,14 @@ func _input(event: InputEvent) -> void:
 		if is_interacting:
 			return
 		if interactables.size() > 0:
-			for child in get_tree().root.get_children():
-				if child is World:
-					child.can_pause = false
+			Pause.can_pause = false
 			can_move = false
 			is_interacting = true
 			interactables[0].interact()
 			await DialogueManager.dialogue_ended
 			can_move = true
 			is_interacting = false
-			for child in get_tree().root.get_children():
-				if child is World:
-					child.can_pause = true
+			Pause.can_pause = true
 
 func handle_movement(direction: float) -> void: ## Handles Velocity based on input direction and current player state.
 	# Handle standard movement.

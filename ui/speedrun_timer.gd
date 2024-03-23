@@ -4,9 +4,10 @@ var time_elapsed := 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not owner.visible:
+	if not owner.visible or not PlayerStats.speedrun_timer_enabled:
 		return
 
+	show()
 	time_elapsed += delta
 
 	var minutes = time_elapsed / 60

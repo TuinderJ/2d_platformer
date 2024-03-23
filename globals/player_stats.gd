@@ -6,6 +6,8 @@ var stats := {
 	"Trophy": 0
 }
 
+var speedrun_timer_enabled := true
+
 signal stats_updated(stats)
 
 func update_stats(key, value_to_increase_by) -> void:

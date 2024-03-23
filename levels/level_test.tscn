@@ -31,7 +31,7 @@ level_path = "res://levels/level_4.tscn"
 animation = "swipe_to_right"
 
 [node name="StartingPosition" parent="." instance=ExtResource("5_a5nvo")]
-position = Vector2(-8, 168)
+position = Vector2(832, 312)
 
 [node name="AngryPig" parent="." instance=ExtResource("5_kmwd2")]
 position = Vector2(384, 344)
@@ -53,5 +53,5 @@ position = Vector2(312, 136)
 position = Vector2(176, 232)
 number_of_spikes = 8
 
-[node name="FinishTrophy" parent="SpikeTrap" instance=ExtResource("10_tmvhn")]
-position = Vector2(-120, -96)
+[node name="FinishTrophy" parent="." instance=ExtResource("10_tmvhn")]
+position = Vector2(56, 136)

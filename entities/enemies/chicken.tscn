@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://entities/enemies/state_debug_label.gd" id="9_wfmns"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tutjv"]
-radius = 12.0
+radius = 13.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0ntu"]
 size = Vector2(14, 4)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhqn87hb634dp"]
+[gd_scene load_steps=12 format=3 uid="uid://bhqn87hb634dp"]
 
 [ext_resource type="Script" path="res://utilities/scene_manager.gd" id="1_wquqg"]
 
@@ -149,6 +149,27 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1152, 648)]
+}
+
+[sub_resource type="Animation" id="Animation_x3auj"]
+resource_name = "none"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"on_to_animation_finished"
+}, {
+"args": [],
+"method": &"on_from_animation_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_uuid2"]
@@ -376,6 +397,7 @@ _data = {
 "RESET": SubResource("Animation_8f6a1"),
 "fade_from_black": SubResource("Animation_e0npg"),
 "fade_to_black": SubResource("Animation_5ompj"),
+"none": SubResource("Animation_x3auj"),
 "swipe_from_left": SubResource("Animation_uuid2"),
 "swipe_from_right": SubResource("Animation_2yg38"),
 "swipe_to_left": SubResource("Animation_sp7gd"),

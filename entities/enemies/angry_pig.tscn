@@ -16,9 +16,11 @@
 [ext_resource type="AudioStream" uid="uid://dwj0oumoc3dh3" path="res://assets/audio/sfx/Pig Damage.wav" id="14_pb6er"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fyu7"]
+radius = 12.0
 height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gc8uu"]
+radius = 12.0
 height = 26.0
 
 [sub_resource type="Animation" id="Animation_ar5v7"]
