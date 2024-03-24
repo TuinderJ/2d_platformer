@@ -11,16 +11,20 @@ config_version=5
 [application]
 
 config/name="2D Platformer"
-run/main_scene="res://world.tscn"
+run/main_scene="res://ui/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://2D Platformer.icon.png"
 config/icon="res://assets/Main Characters/Ninja Frog/Jump (32x32).png"
 config/windows_native_icon="res://assets/Jump (32x32).ico"
 
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-Test="*res://globals/dialogue_signals.gd"
+DialogueGlobals="*res://globals/dialogue_signals.gd"
+PlayerStats="*res://globals/player_stats.gd"
+SceneManager="*res://utilities/scene_manager.tscn"
+Pause="*res://globals/pause.gd"
 
 [dialogue_manager]
 
@@ -29,7 +33,9 @@ general/wrap_lines=true
 
 [display]
 
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 
 [editor_plugins]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://jc2ccs6fl5wl"]
+[gd_scene load_steps=60 format=3 uid="uid://jc2ccs6fl5wl"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_jj35o"]
 [ext_resource type="Texture2D" uid="uid://dipmn812rfgkk" path="res://assets/Main Characters/Ninja Frog/Idle (32x32).png" id="2_resf3"]
@@ -16,13 +16,15 @@
 [ext_resource type="Script" path="res://entities/player/hit_state.gd" id="14_hqqd1"]
 [ext_resource type="Script" path="res://entities/player/wall_state.gd" id="15_jeonq"]
 [ext_resource type="Script" path="res://entities/player/state_debug_label.gd" id="16_54bia"]
+[ext_resource type="PackedScene" uid="uid://bsxi4btjyxjam" path="res://ui/hud.tscn" id="17_rk2ot"]
+[ext_resource type="PackedScene" uid="uid://dbc8uqb175bxb" path="res://ui/pause_menu.tscn" id="18_p2p3u"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fp2h3"]
-height = 24.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xb5o"]
+size = Vector2(18, 24)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74e2s"]
 radius = 1.0
-height = 12.0
+height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dllb2"]
 size = Vector2(18, 24)
@@ -515,7 +517,7 @@ script = ExtResource("3_tvgth")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
 position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_fp2h3")
+shape = SubResource("RectangleShape2D_2xb5o")
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D"]
 script = ExtResource("4_clh2j")
@@ -580,13 +582,21 @@ can_move = false
 [node name="Wall" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("15_jeonq")
 
-[node name="Label" type="Label" parent="."]
+[node name="StateDebugLabel" type="Label" parent="."]
 offset_left = -46.0
 offset_top = -47.0
 offset_right = 62.0
 offset_bottom = -24.0
 text = "State: Ground"
 script = ExtResource("16_54bia")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("17_rk2ot")]
+visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("18_p2p3u")]
+visible = false
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
