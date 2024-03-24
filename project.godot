@@ -35,6 +35,7 @@ general/wrap_lines=true
 
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
