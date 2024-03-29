@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_xcosy"]
 [ext_resource type="Texture2D" uid="uid://deivllobdkfsx" path="res://assets/Enemies/Chicken/Idle (32x34).png" id="2_45b32"]
-[ext_resource type="Script" path="res://hit_box.gd" id="2_wmngy"]
+[ext_resource type="Script" path="res://utilities/hit_box.gd" id="2_wmngy"]
 [ext_resource type="Script" path="res://utilities/hurt_box.gd" id="3_5cf18"]
 [ext_resource type="Texture2D" uid="uid://cmcynlr5ev8dl" path="res://assets/Enemies/Chicken/Hit (32x34).png" id="5_qcbf7"]
 [ext_resource type="Script" path="res://entities/enemies/enemy_state_machine.gd" id="5_qciws"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://entities/enemies/state_debug_label.gd" id="9_wfmns"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tutjv"]
-radius = 12.0
+radius = 13.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0ntu"]
 size = Vector2(14, 4)
@@ -270,8 +270,9 @@ transitions = ["Start", "Wander", SubResource("AnimationNodeStateMachineTransiti
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khovi"]
 radius = 9.0
 
-[node name="Chicken" type="CharacterBody2D"]
+[node name="Chicken" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_xcosy")
+identifier = "Chicken"
 speed = 50
 sprint_modifier = 4.0
 damage = 1

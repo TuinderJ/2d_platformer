@@ -5,7 +5,6 @@ class_name GroundState
 @onready var air_state: AirState = $"../Air"
 @onready var hit: HitState = $"../Hit"
 
-
 func state_input(_event: InputEvent) -> void:
 	if next_state:
 		return
@@ -30,4 +29,3 @@ func on_enter() -> void:
 	if owner.wall_hang_timer:
 		owner.wall_hang_timer.queue_free()
 		owner.wall_hang_timer = null
-
