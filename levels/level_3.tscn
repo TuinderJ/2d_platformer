@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dhxjdrsr2donj"]
 
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_34tbk"]
 [ext_resource type="Texture2D" uid="uid://lwabmfwuqlh" path="res://assets/Terrain/Terrain (16x16).png" id="1_hmfw7"]
-[ext_resource type="Script" path="res://levels/level.gd" id="1_phekb"]
-[ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="3_smqy1"]
+[ext_resource type="PackedScene" path="res://utilities/starting_position.tscn" id="3_smqy1"]
 [ext_resource type="Texture2D" uid="uid://dn80dlrjw1t4k" path="res://assets/Other/Confetti (16x16).png" id="4_iwrc5"]
 [ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://door.tscn" id="5_lno0n"]
 
@@ -602,9 +602,8 @@ terrain_set_0/terrain_0/name = "terrain 0"
 terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_nup0i")
 
-[node name="Level3" type="Node2D" node_paths=PackedStringArray("starting_position")]
-script = ExtResource("1_phekb")
-starting_position = NodePath("StartingPosition")
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_34tbk")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qh6wh")
