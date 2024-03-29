@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsxi4btjyxjam"]
+[gd_scene load_steps=7 format=3 uid="uid://bsxi4btjyxjam"]
 
 [ext_resource type="Script" path="res://ui/hud.gd" id="1_jy2eh"]
+[ext_resource type="Texture2D" uid="uid://cnmg7jdb4s8ty" path="res://assets/Menu/UI/pig_icon.png" id="2_x57tc"]
+[ext_resource type="Texture2D" uid="uid://bn55hvix1wyvs" path="res://assets/Menu/UI/chicken_icon.png" id="3_1n46h"]
+[ext_resource type="Texture2D" uid="uid://cekg13k88diys" path="res://assets/Menu/UI/trophy_icon.png" id="4_j5y13"]
+[ext_resource type="Script" path="res://ui/speedrun_timer.gd" id="5_fstmf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5njp"]
 corner_radius_top_left = 5
@@ -9,13 +13,13 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="HUD" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_jy2eh")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -38,3 +42,68 @@ layout_mode = 2
 
 [node name="FullHeartsContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="StatsContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="PigImage" type="TextureRect" parent="MarginContainer2/StatsContainer"]
+layout_mode = 2
+texture = ExtResource("2_x57tc")
+stretch_mode = 2
+
+[node name="Pig" type="Label" parent="MarginContainer2/StatsContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="ChickenImage" type="TextureRect" parent="MarginContainer2/StatsContainer"]
+layout_mode = 2
+texture = ExtResource("3_1n46h")
+
+[node name="Chicken" type="Label" parent="MarginContainer2/StatsContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="TrophyImage" type="TextureRect" parent="MarginContainer2/StatsContainer"]
+layout_mode = 2
+texture = ExtResource("4_j5y13")
+
+[node name="Trophy" type="Label" parent="MarginContainer2/StatsContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="OtherImage" type="TextureRect" parent="MarginContainer2/StatsContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Other" type="Label" parent="MarginContainer2/StatsContainer"]
+visible = false
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="SpeedrunTimer" type="Label" parent="."]
+process_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.5
+offset_top = 20.0
+offset_right = 20.5
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "M:S:MS"
+script = ExtResource("5_fstmf")

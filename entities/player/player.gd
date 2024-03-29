@@ -42,7 +42,7 @@ var is_interacting := false
 var health: int: ## Current health
 	set(new_value):
 		health = new_value
-		health_updated.emit(health)
+		hud.update_health(health)
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer ## Animation player for the player.
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -53,22 +53,21 @@ var health: int: ## Current health
 @onready var ground_state: GroundState = $PlayerStateMachine/Ground
 @onready var air_state: AirState = $PlayerStateMachine/Air
 @onready var hit_state: HitState = $PlayerStateMachine/Hit
+@onready var hud: Control = $CanvasLayer/HUD
+@onready var pause_menu: Control = $CanvasLayer/PauseMenu
 
-signal max_health_updated(new_max_health: int)
-signal health_updated(new_health: int)
-
+signal stat_updated(key, value_to_increase_by)
 
 func _ready() -> void:
 	health = max_health
 
-	max_health_updated.emit(max_health)
-	health_updated.emit(health)
+	hud.update_max_health(max_health)
+	hud.update_health(health)
 
 	for child in get_tree().root.get_children():
 		if child is DialogueSignals:
 			child.add_extra_jumps.connect(_on_add_extra_jumps)
 			child.add_extra_wall_jumps.connect(_on_add_extra_wall_jumps)
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -93,7 +92,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("sprint"):
 		speed_modifier = sprint_speed_modifier
@@ -105,19 +103,14 @@ func _input(event: InputEvent) -> void:
 		if is_interacting:
 			return
 		if interactables.size() > 0:
-			for child in get_tree().root.get_children():
-				if child is World:
-					child.can_pause = false
+			Pause.can_pause = false
 			can_move = false
 			is_interacting = true
 			interactables[0].interact()
 			await DialogueManager.dialogue_ended
 			can_move = true
 			is_interacting = false
-			for child in get_tree().root.get_children():
-				if child is World:
-					child.can_pause = true
-
+			Pause.can_pause = true
 
 func handle_movement(direction: float) -> void: ## Handles Velocity based on input direction and current player state.
 	# Handle standard movement.
@@ -128,7 +121,6 @@ func handle_movement(direction: float) -> void: ## Handles Velocity based on inp
 			velocity.x = move_toward(velocity.x, direction * speed * speed_modifier, arial_speed)
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, speed)
-
 
 func handle_state(direction: float) -> void: ## handles the state of the player. This controlls animations, i-frames and other things like that.
 	# Direction to face based on input direction or direction moving
@@ -143,15 +135,12 @@ func handle_state(direction: float) -> void: ## handles the state of the player.
 		elif velocity.x < 0:
 			sprite.flip_h = true
 
-
 func bounce_on_enemy() -> void: ## If a player's hurtbox contacts an enemy hitbox, this function is called to cause the player to bounce.
 	velocity.y = jump_velocity
 	state_machine.current_state.next_state = air_state
 
-
-func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not your own) enters your hurtbox.a
+func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not your own) enters your hurtbox.
 	if not _damage or invincibility_frames_active:
-		print("taking damage")
 		return
 
 	if health > 0:
@@ -164,15 +153,12 @@ func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not
 	if health == 0:
 		die()
 
-
 func die() -> void: ## This gets called when hp is set to 0 or less.
-	print_debug("die")
 	var level = (get_parent() as Level)
 	global_position = level.starting_position.global_position
 	health = max_health
 	invincibility_frames_active = false
 	state_machine.current_state.next_state = ground_state
-
 
 func _on_wall_hang_timer_timeout() -> void:
 	wall_hanging = false
@@ -180,29 +166,22 @@ func _on_wall_hang_timer_timeout() -> void:
 	wall_hang_timer.queue_free()
 	wall_hang_timer = null
 
-
 func _on_wall_hang_delay_timer_timeout() -> void:
 	can_wall_hang = true
 	if wall_hang_delay_timer:
 		wall_hang_delay_timer.queue_free()
 		wall_hang_delay_timer = null
 
-
 func _on_interact_area_body_entered(body: Node2D) -> void:
 	interactables.push_back(body)
-	print_debug(interactables)
-
 
 func _on_interact_area_body_exited(body: Node2D) -> void:
 	for index in interactables.size():
 		if interactables[index] == body:
 			interactables.pop_at(index)
-	print_debug(interactables)
-
 
 func _on_add_extra_jumps(number_of_jumps) -> void:
 	max_jumps += number_of_jumps
-
 
 func _on_add_extra_wall_jumps(number_of_wall_jumps) -> void:
 	max_wall_jumps += number_of_wall_jumps

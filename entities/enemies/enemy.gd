@@ -6,6 +6,8 @@ class_name Enemy
 ##
 ## This is the base class for all enemies
 
+@export var identifier: String ## The name of the enemy for stat tracking.
+
 @export_category("Movement")
 @export var speed: int ## Movement speed for the enemy.
 @export var sprint_modifier: float = 1 ## Movement speed modifier when aggressive towards the player.
@@ -28,7 +30,6 @@ var player: Player ## Player.
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
 @onready var hit_state: Node = $EnemyStateMachine/Hit
 @onready var animation_tree: AnimationTree = $AnimationTree
-
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var has_hit_box: bool = false
@@ -61,11 +62,9 @@ func _get_configuration_warnings() -> PackedStringArray:
 		warnings.push_back("This enemy needs to have an EnemyHealthBar.")
 	return warnings
 
-
 func _ready() -> void:
 	health = max_health
 	collision_layer = 2
-
 
 func _physics_process(delta: float) -> void:
 	await enemy_state_machine.state_process_finished
@@ -84,7 +83,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 func take_damage(_damage: int) -> void: ## This is called whenever a player hitbox enters this enemy's hurtbox.
 	$DamageSound.play()
 	if not _damage:
@@ -100,7 +98,6 @@ func take_damage(_damage: int) -> void: ## This is called whenever a player hitb
 		health = 0
 	if health == 0:
 		die()
-
 
 func die() -> void: ## This is called whenever this enemy dies.
 	queue_free()

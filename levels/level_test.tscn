@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://syrpr54xgi7u"]
+[gd_scene load_steps=12 format=3 uid="uid://syrpr54xgi7u"]
 
-[ext_resource type="Script" path="res://levels/level.gd" id="1_pott6"]
-[ext_resource type="TileSet" uid="uid://x72al53mh24r" path="res://assets/Terrain/tile_set.tres" id="2_sr5mu"]
-[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="3_ls3l3"]
-[ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="4_ogrfp"]
-[ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="5_eji0c"]
-[ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="6_lgahh"]
-[ext_resource type="PackedScene" uid="uid://dtjx8oru1sfxn" path="res://utilities/death_box.tscn" id="7_04qwa"]
-[ext_resource type="PackedScene" uid="uid://dbfw5jr7c0kup" path="res://entities/npcs/wise_old_man/wise_old_man.tscn" id="8_vayq7"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_snslc"]
+[ext_resource type="TileSet" uid="uid://x72al53mh24r" path="res://assets/Terrain/tile_set.tres" id="2_2qrvr"]
+[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="4_ofvaj"]
+[ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="5_a5nvo"]
+[ext_resource type="PackedScene" uid="uid://dbfw5jr7c0kup" path="res://entities/npcs/wise_old_man/wise_old_man.tscn" id="5_fcx06"]
+[ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="5_kmwd2"]
+[ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="6_rsi0k"]
+[ext_resource type="PackedScene" uid="uid://dtjx8oru1sfxn" path="res://utilities/death_box.tscn" id="8_i1jhh"]
+[ext_resource type="PackedScene" uid="uid://yohs00xag20v" path="res://objects/traps/spike_trap.tscn" id="9_v0lbn"]
+[ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="10_tmvhn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nk4lx"]
 size = Vector2(80, 152)
@@ -28,8 +30,8 @@ position = Vector2(896, 312)
 level_path = "res://levels/level_4.tscn"
 animation = "swipe_to_right"
 
-[node name="StartingPosition" parent="." instance=ExtResource("4_ogrfp")]
-position = Vector2(-8, 168)
+[node name="StartingPosition" parent="." instance=ExtResource("5_a5nvo")]
+position = Vector2(-16, 168)
 
 [node name="AngryPig" parent="." instance=ExtResource("5_eji0c")]
 position = Vector2(384, 344)
@@ -46,3 +48,10 @@ shape = SubResource("RectangleShape2D_nk4lx")
 
 [node name="WiseOldMan" parent="." instance=ExtResource("8_vayq7")]
 position = Vector2(312, 136)
+
+[node name="SpikeTrap" parent="." instance=ExtResource("9_v0lbn")]
+position = Vector2(176, 232)
+number_of_spikes = 8
+
+[node name="FinishTrophy" parent="." instance=ExtResource("10_tmvhn")]
+position = Vector2(56, 136)
