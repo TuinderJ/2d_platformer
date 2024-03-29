@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdol3qkmx6m2e" path="res://utilities/death_box.tscn" id="6_qax40"]
 [ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="7_ds5yk"]
 [ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="8_l5t8y"]
-[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://door.tscn" id="9_gwkkm"]
+[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="9_gwkkm"]
 [ext_resource type="Texture2D" uid="uid://d4j307kxl22nx" path="res://assets/Traps/Spikes/Idle.png" id="10_8ckd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrjqs"]
@@ -30,7 +30,7 @@ layer_0/tile_data = PackedInt32Array(3276889, 458752, 5, 3211353, 458752, 5, 314
 position = Vector2(304, 600)
 
 [node name="WiseOldMan" parent="." instance=ExtResource("4_c1jge")]
-position = Vector2(4528, 600)
+position = Vector2(4528, 608)
 dialogue_node_title = "first_contact"
 
 [node name="AngryPig" parent="." instance=ExtResource("5_lb8vs")]
