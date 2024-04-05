@@ -154,11 +154,11 @@ func take_damage(_damage: int) -> void: ## Take damage when a hitbox (that's not
 		die()
 
 func die() -> void: ## This gets called when hp is set to 0 or less.
+	PlayerStats.update_stats("Deaths", 1)
+	PlayerStats.reset_level_stats()
 	var level = (get_parent() as Level)
-	global_position = level.starting_position.global_position
-	health = max_health
-	invincibility_frames_active = false
-	state_machine.current_state.next_state = ground_state
+	level.player_died = true
+	SceneManager.transition_to_level(level.scene_file_path, "fade_to_black")
 
 func _on_wall_hang_timer_timeout() -> void:
 	wall_hanging = false

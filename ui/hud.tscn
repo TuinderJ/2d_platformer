@@ -65,6 +65,11 @@ layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
+[node name="PigTotal" type="Label" parent="MarginContainer2/StatsContainer"]
+layout_mode = 2
+text = "/ 0"
+horizontal_alignment = 1
+
 [node name="ChickenImage" type="TextureRect" parent="MarginContainer2/StatsContainer"]
 layout_mode = 2
 texture = ExtResource("3_1n46h")
@@ -72,6 +77,11 @@ texture = ExtResource("3_1n46h")
 [node name="Chicken" type="Label" parent="MarginContainer2/StatsContainer"]
 layout_mode = 2
 text = "0"
+horizontal_alignment = 1
+
+[node name="ChickenTotal" type="Label" parent="MarginContainer2/StatsContainer"]
+layout_mode = 2
+text = "/ 0"
 horizontal_alignment = 1
 
 [node name="TrophyImage" type="TextureRect" parent="MarginContainer2/StatsContainer"]
@@ -83,14 +93,9 @@ layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="OtherImage" type="TextureRect" parent="MarginContainer2/StatsContainer"]
-visible = false
+[node name="TrophyTotal" type="Label" parent="MarginContainer2/StatsContainer"]
 layout_mode = 2
-
-[node name="Other" type="Label" parent="MarginContainer2/StatsContainer"]
-visible = false
-layout_mode = 2
-text = "0"
+text = "/ 0"
 horizontal_alignment = 1
 
 [node name="SpeedrunTimer" type="Label" parent="."]
