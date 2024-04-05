@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://lwabmfwuqlh" path="res://assets/Terrain/Terrain (16x16).png" id="1_irr3r"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_snslc"]
-[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://door.tscn" id="4_ofvaj"]
-[ext_resource type="PackedScene" path="res://utilities/starting_position.tscn" id="5_a5nvo"]
+[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="4_ofvaj"]
+[ext_resource type="PackedScene" uid="uid://da1osp25xk7c2" path="res://utilities/starting_position.tscn" id="5_a5nvo"]
 [ext_resource type="PackedScene" uid="uid://dbfw5jr7c0kup" path="res://entities/npcs/wise_old_man/wise_old_man.tscn" id="5_fcx06"]
 [ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="5_kmwd2"]
 [ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="6_rsi0k"]
 [ext_resource type="Texture2D" uid="uid://d4j307kxl22nx" path="res://assets/Traps/Spikes/Idle.png" id="7_dmbpf"]
-[ext_resource type="PackedScene" path="res://utilities/death_box.tscn" id="8_i1jhh"]
+[ext_resource type="PackedScene" uid="uid://cdol3qkmx6m2e" path="res://utilities/death_box.tscn" id="8_i1jhh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lx0ii"]
 texture = ExtResource("1_irr3r")
@@ -647,7 +647,7 @@ layer_0/tile_data = PackedInt32Array(589836, 65536, 1, 524300, 65536, 1, 458764,
 
 [node name="Door" parent="." instance=ExtResource("4_ofvaj")]
 position = Vector2(896, 312)
-level_path = "res://levels/level_3.tscn"
+level_path = "res://levels/level_1.tscn"
 animation = "fade_to_black"
 
 [node name="StartingPosition" parent="." instance=ExtResource("5_a5nvo")]

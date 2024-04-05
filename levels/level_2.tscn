@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://bl6r7mh8gmjjb"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_py8fy"]
-[ext_resource type="TileSet" uid="uid://bknnyy2lg1tmw" path="res://assets/Terrain/tile_set.tres" id="2_iaqqi"]
+[ext_resource type="TileSet" uid="uid://x72al53mh24r" path="res://assets/Terrain/tile_set.tres" id="2_iaqqi"]
 [ext_resource type="PackedScene" uid="uid://da1osp25xk7c2" path="res://utilities/starting_position.tscn" id="3_h5byd"]
 [ext_resource type="PackedScene" uid="uid://dbfw5jr7c0kup" path="res://entities/npcs/wise_old_man/wise_old_man.tscn" id="4_c1jge"]
 [ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="5_lb8vs"]
 [ext_resource type="PackedScene" uid="uid://cdol3qkmx6m2e" path="res://utilities/death_box.tscn" id="6_qax40"]
 [ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="7_ds5yk"]
 [ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="8_l5t8y"]
-[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://door.tscn" id="9_gwkkm"]
+[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="9_gwkkm"]
 [ext_resource type="Texture2D" uid="uid://d4j307kxl22nx" path="res://assets/Traps/Spikes/Idle.png" id="10_8ckd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrjqs"]
@@ -30,7 +30,7 @@ layer_0/tile_data = PackedInt32Array(3276889, 458752, 5, 3211353, 458752, 5, 314
 position = Vector2(304, 600)
 
 [node name="WiseOldMan" parent="." instance=ExtResource("4_c1jge")]
-position = Vector2(4528, 600)
+position = Vector2(4528, 608)
 dialogue_node_title = "first_contact"
 
 [node name="AngryPig" parent="." instance=ExtResource("5_lb8vs")]
@@ -89,7 +89,8 @@ position = Vector2(5944, 32)
 
 [node name="Door" parent="." instance=ExtResource("9_gwkkm")]
 position = Vector2(5592, 608)
-level_path = "res://levels/level_2.tscn"
+level_path = "res://levels/level_3.tscn"
+animation = "swipe_to_left"
 
 [node name="Idle" type="Sprite2D" parent="."]
 position = Vector2(1944, 696)
