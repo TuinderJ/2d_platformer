@@ -13,6 +13,8 @@ var movement := {
 	"max_wall_jumps": 0
 }
 
+var speedrun_timer := 0.0
+
 var current_level_stats := {
 	"Pig": 0,
 	"Chicken": 0,

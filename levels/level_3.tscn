@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d4j307kxl22nx" path="res://assets/Traps/Spikes/Idle.png" id="6_s4i4k"]
 [ext_resource type="PackedScene" uid="uid://dtjx8oru1sfxn" path="res://utilities/death_box.tscn" id="7_fcmqu"]
 [ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="8_wxhvw"]
-[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="9_lx11i"]
+[ext_resource type="PackedScene" path="res://utilities/door.tscn" id="9_lx11i"]
 [ext_resource type="PackedScene" uid="uid://dbfw5jr7c0kup" path="res://entities/npcs/wise_old_man/wise_old_man.tscn" id="10_22e0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ncc"]
