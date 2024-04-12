@@ -6,7 +6,6 @@
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 2D Platformer\n"
@@ -18,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: ui/main_menu.tscn
 msgid "MAIN_MENU_TITLE"
@@ -51,6 +50,10 @@ msgstr "----------Pause----------"
 #: ui/pause_menu.tscn
 msgid "RESUME_BUTTON"
 msgstr "Resume Game"
+
+#: ui/pause_menu.tscn
+msgid "STATS_BUTTON"
+msgstr "Stats"
 
 #: ui/pause_menu.tscn
 msgid "SAVE_BUTTON"
@@ -226,3 +229,15 @@ msgstr "This is awesome! But I still want to know why you are helping so much."
 msgctxt "t99c86741b2"
 msgid "Oh there's the plant I have been seeking!"
 msgstr "Oh there's the plant I have been seeking!"
+
+#: ui/new_game_menu.tscn
+msgid "NEW_GAME_MENU_TITLE"
+msgstr "Options"
+
+#: ui/new_game_menu.tscn
+msgid "SPEEDRUN_TIMER_CHECKBOX"
+msgstr "Speedrun Timer"
+
+#: ui/new_game_menu.tscn
+msgid "START_GAME_BUTTON"
+msgstr "Start Game"

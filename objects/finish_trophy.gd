@@ -8,5 +8,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		return
 
 	animation_player.play("pressed")
-	PlayerStats.update_stats(identifier, 1)
-
+	PlayerStats.update_level_stats(identifier, 1)
