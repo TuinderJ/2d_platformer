@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1o5kg254wikf"]
-
-[ext_resource type="Script" path="res://globals/pause.gd" id="1_1r6ak"]
-
-[node name="World" type="Node2D"]
-process_mode = 3
-script = ExtResource("1_1r6ak")
