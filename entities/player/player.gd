@@ -10,8 +10,6 @@ class_name Player
 @export var arial_speed := 8.0 ## Player movement speed while in the air.
 @export var sprint_speed_modifier := 1.4 ## Player speed movement while sprint button is pressed.
 @export var jump_velocity := -400.0 ## Strength of the jump.
-@export var max_jumps := 1 ## Maximum number of jumps, this includes the first jump from the floor.
-@export var max_wall_jumps := 0 ## Maximum number of wall jumps before touching the ground again.
 @export var wall_hang_time := .25 ## Time that the player will stick to the wall before sliding down.
 
 var can_move := true ## True if the player is allowed to move.
@@ -65,7 +63,7 @@ func _ready() -> void:
 	hud.update_health(health)
 
 	for child in get_tree().root.get_children():
-		if child is DialogueSignals:
+		if child is DialogueGlobals:
 			child.add_extra_jumps.connect(_on_add_extra_jumps)
 			child.add_extra_wall_jumps.connect(_on_add_extra_wall_jumps)
 
@@ -181,7 +179,7 @@ func _on_interact_area_body_exited(body: Node2D) -> void:
 			interactables.pop_at(index)
 
 func _on_add_extra_jumps(number_of_jumps) -> void:
-	max_jumps += number_of_jumps
+	PlayerStats.movement.max_jumps += number_of_jumps
 
 func _on_add_extra_wall_jumps(number_of_wall_jumps) -> void:
-	max_wall_jumps += number_of_wall_jumps
+	PlayerStats.movement.max_wall_jumps += number_of_wall_jumps

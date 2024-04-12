@@ -28,7 +28,7 @@ Pause="*res://globals/pause.gd"
 
 [dialogue_manager]
 
-general/states=["Globals", "PlayerScript", "Test"]
+general/states=["Globals", "PlayerScript", "Test", "DialogueSignals", "DialogueGlobals"]
 general/wrap_lines=true
 
 [display]
