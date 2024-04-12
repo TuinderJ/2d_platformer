@@ -6,4 +6,4 @@ func _ready() -> void:
 
 func _on_start_button_pressed() -> void:
 	PlayerStats.speedrun_timer_enabled = $PanelContainer/PanelContainer/MarginContainer/VBoxContainer/SpeedrunTimer.button_pressed
-	get_node("/root/SceneManager").transition_to_level("res://levels/level_test.tscn", "none")
+	get_node("/root/SceneManager").transition_to_level("res://levels/level_1.tscn", "none")
