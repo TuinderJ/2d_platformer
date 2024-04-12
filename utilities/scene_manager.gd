@@ -12,6 +12,7 @@ func transition_to_level(new_scene_path: String, _animation: String = "fade_to_b
 	if animation_player.is_playing():
 		return
 	# Load the new level from the path provided
+
 	new_scene = load(new_scene_path).instantiate()
 
 	if _player:
