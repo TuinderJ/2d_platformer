@@ -8,6 +8,10 @@ var animation: String
 var player: Player
 var can_play := true
 
+func _ready() -> void:
+	if not current_scene and get_tree().current_scene is Level:
+		current_scene = get_tree().current_scene
+
 func transition_to_level(new_scene_path: String, _animation: String = "fade_to_black", _player: Player = null) -> void:
 	if animation_player.is_playing():
 		return

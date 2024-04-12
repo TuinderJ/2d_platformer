@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://jc2ccs6fl5wl"]
+[gd_scene load_steps=61 format=3 uid="uid://jc2ccs6fl5wl"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_jj35o"]
 [ext_resource type="Texture2D" uid="uid://dipmn812rfgkk" path="res://assets/Main Characters/Ninja Frog/Idle (32x32).png" id="2_resf3"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://entities/player/state_debug_label.gd" id="16_54bia"]
 [ext_resource type="PackedScene" uid="uid://bsxi4btjyxjam" path="res://ui/hud.tscn" id="17_rk2ot"]
 [ext_resource type="PackedScene" uid="uid://dbc8uqb175bxb" path="res://ui/pause_menu.tscn" id="18_p2p3u"]
+[ext_resource type="PackedScene" uid="uid://myswfrxhngcu" path="res://ui/stat_screen.tscn" id="19_pqtah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xb5o"]
 size = Vector2(18, 24)
@@ -596,6 +597,9 @@ script = ExtResource("16_54bia")
 visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("18_p2p3u")]
+visible = false
+
+[node name="StatScreen" parent="CanvasLayer" instance=ExtResource("19_pqtah")]
 visible = false
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
