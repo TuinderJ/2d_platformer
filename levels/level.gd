@@ -15,13 +15,13 @@ func _ready() -> void:
 		"Chicken": 0,
 		"Trophy": 0
 	}
-	
+
 	for identifier in totals:
 		for child in get_children():
 			if "identifier" in child:
 				if child.identifier == identifier:
 					totals[identifier] += 1
-	
+
 	if not player:
 		player = preload("res://entities/player/player.tscn").instantiate()
 	player.global_position = starting_position.global_position

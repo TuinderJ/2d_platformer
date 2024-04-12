@@ -32,13 +32,13 @@ func update_level_stats(key, value_to_increase_by) -> void:
 func update_totals() -> void:
 	var data_file = FileAccess.open("res://globals/totals.json", FileAccess.WRITE)
 	var level_files = DirAccess.open("res://levels/").get_files()
-	
+
 	var new_totals := {
 		"Pig": 0,
 		"Chicken": 0,
 		"Trophy": 0
 	}
-	
+
 	for level_file in level_files:
 		if level_file.ends_with("tscn"):
 			var level = load("res://levels/" + level_file).instantiate()
@@ -48,7 +48,7 @@ func update_totals() -> void:
 			new_totals.Pig += pig_total
 			new_totals.Chicken += chicken_total
 			new_totals.Trophy += trophy_total
-	
+
 	data_file.store_string(JSON.stringify(new_totals))
 
 func find_totals(level, identifier) -> int:
