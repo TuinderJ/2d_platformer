@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_u4fib"]
 [ext_resource type="Script" path="res://utilities/starting_position.gd" id="2_fdfdc"]
-[ext_resource type="TileSet" uid="uid://x72al53mh24r" path="res://assets/Terrain/tile_set.tres" id="3_njirm"]
+[ext_resource type="TileSet" uid="uid://bknnyy2lg1tmw" path="res://assets/Terrain/tile_set.tres" id="3_njirm"]
 [ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="5_ujbt8"]
 [ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="5_yewgf"]
 [ext_resource type="PackedScene" uid="uid://dtjx8oru1sfxn" path="res://utilities/death_box.tscn" id="6_0tv3i"]
-[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="6_lufhj"]
+[ext_resource type="PackedScene" path="res://utilities/door.tscn" id="6_lufhj"]
 [ext_resource type="PackedScene" uid="uid://yohs00xag20v" path="res://objects/traps/spike_trap.tscn" id="8_x3wg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxj6"]
