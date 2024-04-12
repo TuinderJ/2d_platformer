@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://4jfx4m0dcahq"]
+[gd_scene load_steps=37 format=3 uid="uid://4jfx4m0dcahq"]
 
 [ext_resource type="Texture2D" uid="uid://d0cyuayuyau3a" path="res://assets/Enemies/AngryPig/Idle (36x30).png" id="1_3nrtq"]
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_o3fuv"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://entities/enemies/wander_state.gd" id="10_lipre"]
 [ext_resource type="Script" path="res://entities/enemies/aggressive_state.gd" id="11_glu07"]
 [ext_resource type="Script" path="res://entities/enemies/hit_state.gd" id="12_12uds"]
-[ext_resource type="Script" path="res://entities/enemies/state_debug_label.gd" id="13_ma2se"]
 [ext_resource type="AudioStream" uid="uid://dwj0oumoc3dh3" path="res://assets/audio/sfx/Pig Damage.wav" id="14_pb6er"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fyu7"]
@@ -379,14 +378,6 @@ script = ExtResource("11_glu07")
 
 [node name="Hit" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("12_12uds")
-
-[node name="StateDebugLabel" type="Label" parent="."]
-offset_left = -55.0
-offset_top = -50.0
-offset_right = 68.0
-offset_bottom = -27.0
-text = "State: Wander"
-script = ExtResource("13_ma2se")
 
 [node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_pb6er")

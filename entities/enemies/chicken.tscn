@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c3l4bv78wufol"]
+[gd_scene load_steps=36 format=3 uid="uid://c3l4bv78wufol"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_xcosy"]
 [ext_resource type="Texture2D" uid="uid://deivllobdkfsx" path="res://assets/Enemies/Chicken/Idle (32x34).png" id="2_45b32"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bmg6suftcsjnn" path="res://ui/enemy_health_bar.tscn" id="7_n5fu1"]
 [ext_resource type="Script" path="res://entities/enemies/hit_state.gd" id="8_2gpu7"]
 [ext_resource type="AudioStream" uid="uid://duvpomdn70aeu" path="res://assets/Enemies/Chicken/Chicken Damage.mp3" id="8_m6k6l"]
-[ext_resource type="Script" path="res://entities/enemies/state_debug_label.gd" id="9_wfmns"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tutjv"]
 radius = 13.0
@@ -325,14 +324,6 @@ shape = SubResource("CapsuleShape2D_khovi")
 [node name="DamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_m6k6l")
 volume_db = -12.0
-
-[node name="EnemyStateDebugLabel" type="Label" parent="."]
-offset_left = -41.0
-offset_top = -56.0
-offset_right = 8.0
-offset_bottom = -33.0
-text = "State: "
-script = ExtResource("9_wfmns")
 
 [node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("5_qciws")

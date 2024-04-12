@@ -17,7 +17,7 @@ func state_process(_delta: float) -> void:
 
 
 func state_input(event: InputEvent) -> void:
-	if event.is_action_pressed("jump") && owner.jumps_taken < owner.max_jumps:
+	if event.is_action_pressed("jump") && owner.jumps_taken < PlayerStats.movement.max_jumps:
 		PlayerStats.update_stats("Jumps", 1)
 		owner.velocity.y = owner.jump_velocity
 		owner.jumps_taken += 1

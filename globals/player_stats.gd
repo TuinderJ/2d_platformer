@@ -8,6 +8,11 @@ var stats := {
 	"Deaths": 0
 }
 
+var movement := {
+	"max_jumps": 0,
+	"max_wall_jumps": 0
+}
+
 var current_level_stats := {
 	"Pig": 0,
 	"Chicken": 0,
