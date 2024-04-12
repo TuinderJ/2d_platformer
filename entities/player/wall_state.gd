@@ -35,7 +35,7 @@ func state_input(_event: InputEvent) -> void:
 	if next_state:
 		return
 	# Handle wall jump.
-	if Input.is_action_just_pressed("jump") and owner.wall_jumps_taken < PlayerStats.movement.max_wall_jumps:
+	if Input.is_action_just_pressed("jump") and owner.wall_jumps_taken < (PlayerStats.movement.max_wall_jumps + PlayerStats.movement.temp_max_wall_jumps):
 		owner.velocity.y = owner.jump_velocity
 		owner.wall_jumps_taken += 1
 		owner.wall_hanging = false
