@@ -14,7 +14,6 @@ config/name="2D Platformer"
 run/main_scene="res://ui/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://2D Platformer.icon.png"
 config/icon="res://assets/Main Characters/Ninja Frog/Jump (32x32).png"
 config/windows_native_icon="res://assets/Jump (32x32).ico"
 
