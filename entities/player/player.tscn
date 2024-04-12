@@ -503,8 +503,6 @@ graph_offset = Vector2(3, -18)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_jj35o")
-max_jumps = 2
-max_wall_jumps = 1
 max_health = 3
 damage = 1
 
