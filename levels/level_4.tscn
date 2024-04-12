@@ -607,7 +607,7 @@ script = ExtResource("1_phekb")
 [gd_scene load_steps=6 format=3 uid="uid://dhxjdrsr2donj"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_mmpef"]
-[ext_resource type="TileSet" uid="uid://bknnyy2lg1tmw" path="res://assets/Terrain/tile_set.tres" id="2_3bvmw"]
+[ext_resource type="TileSet" uid="uid://bknnyy2lg1tmw" path="res://assets/Terrain/tile_set.tres" id="3_njirm"]
 [ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="3_q2j0x"]
 [ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="4_sd2au"]
 [ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="5_edbkm"]
@@ -632,6 +632,7 @@ texture = ExtResource("4_iwrc5")
 position = Vector2(1360, 680)
 level_path = "res://levels/level_1.tscn"
 animation = "swipe_to_left"
+
 [node name="StartingPosition" parent="." instance=ExtResource("3_q2j0x")]
 position = Vector2(1280, 640)
 

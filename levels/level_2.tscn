@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://bl6r7mh8gmjjb"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_py8fy"]
-[ext_resource type="TileSet" uid="uid://x72al53mh24r" path="res://assets/Terrain/tile_set.tres" id="2_iaqqi"]
+[ext_resource type="TileSet" uid="uid://bknnyy2lg1tmw" path="res://assets/Terrain/tile_set.tres" id="2_iaqqi"]
 [ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="3_h5byd"]
 [ext_resource type="PackedScene" uid="uid://dbfw5jr7c0kup" path="res://entities/npcs/wise_old_man/wise_old_man.tscn" id="4_c1jge"]
 [ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="5_lb8vs"]
 [ext_resource type="PackedScene" uid="uid://dtjx8oru1sfxn" path="res://utilities/death_box.tscn" id="6_qax40"]
 [ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="7_ds5yk"]
 [ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="8_l5t8y"]
-[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="9_gwkkm"]
+[ext_resource type="PackedScene" path="res://utilities/door.tscn" id="9_gwkkm"]
 [ext_resource type="Texture2D" uid="uid://d4j307kxl22nx" path="res://assets/Traps/Spikes/Idle.png" id="10_8ckd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrjqs"]
