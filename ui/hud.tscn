@@ -62,11 +62,13 @@ stretch_mode = 2
 
 [node name="Pig" type="Label" parent="MarginContainer2/StatsContainer"]
 layout_mode = 2
+auto_translate = false
 text = "0"
 horizontal_alignment = 1
 
 [node name="PigTotal" type="Label" parent="MarginContainer2/StatsContainer"]
 layout_mode = 2
+auto_translate = false
 text = "/ 0"
 horizontal_alignment = 1
 
@@ -76,11 +78,13 @@ texture = ExtResource("3_1n46h")
 
 [node name="Chicken" type="Label" parent="MarginContainer2/StatsContainer"]
 layout_mode = 2
+auto_translate = false
 text = "0"
 horizontal_alignment = 1
 
 [node name="ChickenTotal" type="Label" parent="MarginContainer2/StatsContainer"]
 layout_mode = 2
+auto_translate = false
 text = "/ 0"
 horizontal_alignment = 1
 
@@ -90,11 +94,13 @@ texture = ExtResource("4_j5y13")
 
 [node name="Trophy" type="Label" parent="MarginContainer2/StatsContainer"]
 layout_mode = 2
+auto_translate = false
 text = "0"
 horizontal_alignment = 1
 
 [node name="TrophyTotal" type="Label" parent="MarginContainer2/StatsContainer"]
 layout_mode = 2
+auto_translate = false
 text = "/ 0"
 horizontal_alignment = 1
 
@@ -110,5 +116,6 @@ offset_top = 20.0
 offset_right = 20.5
 offset_bottom = 43.0
 grow_horizontal = 2
+auto_translate = false
 text = "M:S:MS"
 script = ExtResource("5_fstmf")

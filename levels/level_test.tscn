@@ -48,6 +48,7 @@ shape = SubResource("RectangleShape2D_nk4lx")
 
 [node name="WiseOldMan" parent="." instance=ExtResource("5_fcx06")]
 position = Vector2(312, 136)
+dialogue_node_title = "first_contact"
 
 [node name="SpikeTrap" parent="." instance=ExtResource("9_v0lbn")]
 position = Vector2(176, 232)

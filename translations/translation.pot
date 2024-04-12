@@ -3,6 +3,7 @@
 # res://ui/main_menu.tscn
 # res://ui/pause_menu.tscn
 # res://dialogue/wise_old_man.dialogue
+# res://ui/new_game_menu.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -45,6 +46,10 @@ msgstr ""
 
 #: ui/pause_menu.tscn
 msgid "RESUME_BUTTON"
+msgstr ""
+
+#: ui/pause_menu.tscn
+msgid "STATS_BUTTON"
 msgstr ""
 
 #: ui/pause_menu.tscn
@@ -198,4 +203,16 @@ msgstr ""
 #: dialogue/wise_old_man.dialogue
 msgctxt "t99c86741b2"
 msgid "Oh there\'s the plant I have been seeking!"
+msgstr ""
+
+#: ui/new_game_menu.tscn
+msgid "NEW_GAME_MENU_TITLE"
+msgstr ""
+
+#: ui/new_game_menu.tscn
+msgid "SPEEDRUN_TIMER_CHECKBOX"
+msgstr ""
+
+#: ui/new_game_menu.tscn
+msgid "START_GAME_BUTTON"
 msgstr ""
