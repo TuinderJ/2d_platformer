@@ -4,6 +4,9 @@ extends Control
 @onready var empty_hearts_container: HBoxContainer = $MarginContainer/PanelContainer/EmptyHeartsContainer
 @onready var full_hearts_container: HBoxContainer = $MarginContainer/PanelContainer/FullHeartsContainer
 @onready var stats_container: HBoxContainer = $MarginContainer2/StatsContainer
+@onready var pig_total: Label = $MarginContainer2/StatsContainer/PigTotal
+@onready var chicken_total: Label = $MarginContainer2/StatsContainer/ChickenTotal
+@onready var trophy_total: Label = $MarginContainer2/StatsContainer/TrophyTotal
 
 func _ready():
 	hide()
@@ -43,8 +46,13 @@ func add_full_hearts(count: int) -> void:
 		full_heart_texture_rect.flip_h = true
 		full_hearts_container.add_child(full_heart_texture_rect)
 
-func _player_stats_updated(stats) -> void:
+func _player_stats_updated(stats, current_level_stats) -> void:
 	for key in stats:
 		for child in stats_container.get_children():
 			if child.name == key:
-				child.text = str(stats[key])
+				child.text = str(current_level_stats[key])
+
+func update_stat_totals(totals) -> void:
+	pig_total.text = "/ " + str(totals.Pig)
+	chicken_total.text = "/ " + str(totals.Chicken)
+	trophy_total.text = "/ " + str(totals.Trophy)

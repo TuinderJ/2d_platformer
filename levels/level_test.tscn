@@ -632,8 +632,8 @@ sources/0 = SubResource("TileSetAtlasSource_lx0ii")
 [gd_scene load_steps=12 format=3 uid="uid://syrpr54xgi7u"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_snslc"]
-[ext_resource type="TileSet" uid="uid://x72al53mh24r" path="res://assets/Terrain/tile_set.tres" id="2_2qrvr"]
-[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="4_ofvaj"]
+[ext_resource type="TileSet" uid="uid://bknnyy2lg1tmw" path="res://assets/Terrain/tile_set.tres" id="2_2qrvr"]
+[ext_resource type="PackedScene" path="res://utilities/door.tscn" id="4_ofvaj"]
 [ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="5_a5nvo"]
 [ext_resource type="PackedScene" uid="uid://dbfw5jr7c0kup" path="res://entities/npcs/wise_old_man/wise_old_man.tscn" id="5_fcx06"]
 [ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="5_kmwd2"]
@@ -717,6 +717,7 @@ shape = SubResource("RectangleShape2D_avgn1")
 =======
 [node name="WiseOldMan" parent="." instance=ExtResource("5_fcx06")]
 position = Vector2(312, 136)
+dialogue_node_title = "first_contact"
 
 [node name="SpikeTrap" parent="." instance=ExtResource("9_v0lbn")]
 position = Vector2(176, 232)

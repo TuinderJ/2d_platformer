@@ -8,6 +8,10 @@ func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
 	hide()
 
+func _on_stats_button_pressed() -> void:
+	hide()
+	get_node("../StatScreen").show()
+
 func _on_save_button_pressed() -> void:
 	pass # Replace with function body.
 
