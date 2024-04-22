@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://levels/level.gd" id="1_mmpef"]
 [ext_resource type="TileSet" uid="uid://bknnyy2lg1tmw" path="res://assets/Terrain/tile_set.tres" id="2_3bvmw"]
 [ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="3_q2j0x"]
-[ext_resource type="PackedScene" path="res://utilities/door.tscn" id="4_sd2au"]
+[ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="4_sd2au"]
 [ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="5_edbkm"]
 
 [node name="Level4" type="Node2D" node_paths=PackedStringArray("starting_position")]
