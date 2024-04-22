@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhxjdrsr2donj"]
+[gd_scene load_steps=8 format=3 uid="uid://dhxjdrsr2donj"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_mmpef"]
 [ext_resource type="TileSet" uid="uid://bknnyy2lg1tmw" path="res://assets/Terrain/tile_set.tres" id="2_3bvmw"]
 [ext_resource type="PackedScene" uid="uid://d0cbq6n3lgb3w" path="res://utilities/starting_position.tscn" id="3_q2j0x"]
 [ext_resource type="PackedScene" uid="uid://52ytbc6uk5vl" path="res://utilities/door.tscn" id="4_sd2au"]
 [ext_resource type="PackedScene" uid="uid://cxvfbdb1rwwvg" path="res://objects/finish_trophy.tscn" id="5_edbkm"]
+[ext_resource type="PackedScene" uid="uid://c3l4bv78wufol" path="res://entities/enemies/chicken.tscn" id="6_kmgh7"]
+[ext_resource type="PackedScene" uid="uid://4jfx4m0dcahq" path="res://entities/enemies/angry_pig.tscn" id="7_bwrpf"]
 
 [node name="Level4" type="Node2D" node_paths=PackedStringArray("starting_position")]
 script = ExtResource("1_mmpef")
@@ -26,3 +28,33 @@ animation = "fade_to_black"
 
 [node name="FinishTrophy" parent="." instance=ExtResource("5_edbkm")]
 position = Vector2(1784, 104)
+
+[node name="Chicken" parent="." instance=ExtResource("6_kmgh7")]
+position = Vector2(488, 568)
+
+[node name="Chicken2" parent="." instance=ExtResource("6_kmgh7")]
+position = Vector2(288, 440)
+
+[node name="Chicken3" parent="." instance=ExtResource("6_kmgh7")]
+position = Vector2(168, 440)
+
+[node name="AngryPig" parent="." instance=ExtResource("7_bwrpf")]
+position = Vector2(704, 264)
+
+[node name="AngryPig2" parent="." instance=ExtResource("7_bwrpf")]
+position = Vector2(1280, 104)
+
+[node name="AngryPig3" parent="." instance=ExtResource("7_bwrpf")]
+position = Vector2(1088, 104)
+
+[node name="AngryPig4" parent="." instance=ExtResource("7_bwrpf")]
+position = Vector2(2256, 264)
+
+[node name="AngryPig5" parent="." instance=ExtResource("7_bwrpf")]
+position = Vector2(2464, 168)
+
+[node name="AngryPig6" parent="." instance=ExtResource("7_bwrpf")]
+position = Vector2(2144, 680)
+
+[node name="AngryPig7" parent="." instance=ExtResource("7_bwrpf")]
+position = Vector2(3360, 680)
