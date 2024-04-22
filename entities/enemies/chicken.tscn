@@ -266,14 +266,13 @@ states/hit/node = SubResource("AnimationNodeAnimation_7wi5e")
 states/hit/position = Vector2(342, 176)
 transitions = ["Start", "Wander", SubResource("AnimationNodeStateMachineTransition_xrd80"), "Wander", "Aggressive", SubResource("AnimationNodeStateMachineTransition_12ivb"), "Aggressive", "hit", SubResource("AnimationNodeStateMachineTransition_2q8w0"), "hit", "Aggressive", SubResource("AnimationNodeStateMachineTransition_2wvjn"), "Wander", "hit", SubResource("AnimationNodeStateMachineTransition_l0d2o")]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khovi"]
-radius = 9.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtwb5"]
+size = Vector2(20, 27)
 
 [node name="Chicken" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_xcosy")
 identifier = "Chicken"
-speed = 50
-sprint_modifier = 4.0
+speed = 100
 damage = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -282,6 +281,7 @@ texture = ExtResource("2_45b32")
 hframes = 13
 
 [node name="HitBox" type="Area2D" parent="Sprite2D"]
+visible = false
 script = ExtResource("2_wmngy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
@@ -289,6 +289,7 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_tutjv")
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D"]
+visible = false
 script = ExtResource("3_5cf18")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
@@ -318,8 +319,8 @@ offset_top = -37.0
 offset_bottom = -34.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
-shape = SubResource("CapsuleShape2D_khovi")
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_vtwb5")
 
 [node name="DamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_m6k6l")

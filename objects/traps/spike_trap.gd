@@ -14,6 +14,7 @@ func _ready() -> void:
 	rectangle_shape_2d.size.x = number_of_spikes * pixels
 	rectangle_shape_2d.size.y = 8
 
+	@warning_ignore("integer_division")
 	collision_shape_2d.position.x = (number_of_spikes * pixels / 2) - (pixels)
 	collision_shape_2d.position.y = 4
 	collision_shape_2d.shape = rectangle_shape_2d

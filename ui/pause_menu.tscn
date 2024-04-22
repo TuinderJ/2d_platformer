@@ -52,20 +52,10 @@ text = "RESUME_BUTTON"
 layout_mode = 2
 text = "STATS_BUTTON"
 
-[node name="save_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "SAVE_BUTTON"
-
-[node name="load_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "LOAD_BUTTON"
-
 [node name="quit_button" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "QUIT_BUTTON"
 
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/stats_button" to="." method="_on_stats_button_pressed"]
-[connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/save_button" to="." method="_on_save_button_pressed"]
-[connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/load_button" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]

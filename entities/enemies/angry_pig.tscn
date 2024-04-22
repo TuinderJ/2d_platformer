@@ -307,14 +307,14 @@ states/hit/node = SubResource("AnimationNodeAnimation_fvxx2")
 states/hit/position = Vector2(295, 167)
 transitions = ["Start", "Wander", SubResource("AnimationNodeStateMachineTransition_r8cbv"), "Wander", "hit", SubResource("AnimationNodeStateMachineTransition_bkpcj"), "Wander", "Aggresive", SubResource("AnimationNodeStateMachineTransition_ldimq"), "Aggresive", "hit", SubResource("AnimationNodeStateMachineTransition_mx28v"), "hit", "Aggresive", SubResource("AnimationNodeStateMachineTransition_qlr54")]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u4enw"]
-height = 26.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2e08"]
+size = Vector2(26, 26)
 
 [node name="AngryPig" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_o3fuv")
 identifier = "Pig"
 speed = 25
-sprint_modifier = 3.5
+sprint_modifier = 4.0
 damage = 1
 max_health = 2
 
@@ -353,7 +353,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_h0ywo")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Aggresive/blend_position = 0
-parameters/Wander/blend_position = 0
+parameters/Wander/blend_position = 0.00676179
 
 [node name="EnemyHealthBar" parent="." instance=ExtResource("5_6deq1")]
 offset_top = -32.0
@@ -361,7 +361,7 @@ offset_bottom = -29.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)
-shape = SubResource("CapsuleShape2D_u4enw")
+shape = SubResource("RectangleShape2D_k2e08")
 
 [node name="WanderTimer" type="Timer" parent="."]
 one_shot = true

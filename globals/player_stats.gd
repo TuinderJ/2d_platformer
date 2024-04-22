@@ -9,9 +9,13 @@ var stats := {
 }
 
 var movement := {
-	"max_jumps": 0,
-	"max_wall_jumps": 0
+	"max_jumps": 1,
+	"max_wall_jumps": 0,
+	"temp_max_jumps": 0,
+	"temp_max_wall_jumps": 0
 }
+
+var speedrun_timer := 0.0
 
 var current_level_stats := {
 	"Pig": 0,
@@ -76,6 +80,10 @@ func on_level_exit() -> void:
 	current_level_stats.Pig = 0
 	current_level_stats.Chicken = 0
 	current_level_stats.Trophy = 0
+	movement.max_jumps += movement.temp_max_jumps
+	movement.max_wall_jumps += movement.temp_max_wall_jumps
+	movement.temp_max_jumps = 0
+	movement.temp_max_wall_jumps = 0
 	stats_updated.emit(stats, current_level_stats)
 
 func reset_level_stats() -> void:
@@ -83,3 +91,5 @@ func reset_level_stats() -> void:
 	current_level_stats.Chicken = 0
 	current_level_stats.Trophy = 0
 	stats_updated.emit(stats, current_level_stats)
+	movement.temp_max_jumps = 0
+	movement.temp_max_wall_jumps = 0

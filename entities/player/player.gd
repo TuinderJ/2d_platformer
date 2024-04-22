@@ -179,7 +179,7 @@ func _on_interact_area_body_exited(body: Node2D) -> void:
 			interactables.pop_at(index)
 
 func _on_add_extra_jumps(number_of_jumps) -> void:
-	PlayerStats.movement.max_jumps += number_of_jumps
+	PlayerStats.movement.temp_max_jumps += number_of_jumps
 
 func _on_add_extra_wall_jumps(number_of_wall_jumps) -> void:
-	PlayerStats.movement.max_wall_jumps += number_of_wall_jumps
+	PlayerStats.movement.temp_max_wall_jumps += number_of_wall_jumps

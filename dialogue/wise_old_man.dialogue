@@ -8,6 +8,7 @@ Mentor: Excellent I have these old spikey gloves things from my days as an adven
 Player: Gee thank you, but why are you helping me? I just met you. [ID:t56bc3de545]
 Mentor: Don't worry about that for now, Why don't you try the gloves out? [ID:t95bdcff293]
 do emit("add_extra_wall_jumps", 1)
+do emit("wise_old_man_disappear")
 # Cuts to full screen thing shown to the side
 # Mentor then leaves(could walk away or fade off/just poof to be mysterious) and the player has a section of the level with some easy wall jumps but the wall jumps are needed to finish the level
 => END
@@ -25,6 +26,7 @@ Player: That’s amazing! [ID:t78e82f2500]
 # Display you got an item screen
 Mentor: Well back to my stroll. [ID:tfcc5008b37]
 do emit("add_extra_jumps", 1)
+do emit("wise_old_man_disappear")
 # Mentor then walks off and the player has a section of the level with some easy double jumps but the double jumps are needed to finish the level
 => END
 
@@ -43,5 +45,6 @@ Mentor: This a sync belt. It links the power of your gloves with the power of yo
 Player: This is awesome! But I still want to know why you are helping so much. [ID:te2d1ad463c]
 Mentor: Oh there's the plant I have been seeking! [ID:t99c86741b2]
 do emit("add_extra_wall_jumps", 1)
+do emit("wise_old_man_disappear")
 #Mentor wanders heads off towards his plant and the player has a teaching section for the new item.
 => END
